@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctp3o5vt4j5cg"]
+
+[ext_resource type="PackedScene" uid="uid://7bd2ygnlblpl" path="res://asset/Dodecaedre.glb" id="1_xy4bk"]
+[ext_resource type="Script" path="res://code/dodecaedre.gd" id="2_in6wi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_08aej"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_n311f"]
+sky_material = SubResource("ProceduralSkyMaterial_08aej")
+
+[sub_resource type="Environment" id="Environment_clmqr"]
+background_mode = 2
+sky = SubResource("Sky_n311f")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_clmqr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.87665, 0, 0)
+
+[node name="GestionnaireDodecaedre" type="Node3D" parent="."]
+script = ExtResource("2_in6wi")
+
+[node name="BrasHorizontal" type="Node3D" parent="GestionnaireDodecaedre"]
+
+[node name="BrasVertical" type="Node3D" parent="GestionnaireDodecaedre/BrasHorizontal"]
+
+[node name="Dodecaedre" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical" instance=ExtResource("1_xy4bk")]
+
+[node name="Solid" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[editable path="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]

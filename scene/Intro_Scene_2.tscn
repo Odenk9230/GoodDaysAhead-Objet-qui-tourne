@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfhc31ky864t2"]
+
+[ext_resource type="Texture2D" uid="uid://b8slwj03l8jyv" path="res://asset/chat_captcha.png" id="1_7k5kx"]
+[ext_resource type="FontFile" uid="uid://3ncgc61je1xp" path="res://Fonts/F25_Bank_Printer.ttf" id="1_hi5ns"]
+[ext_resource type="Script" path="res://scene/Intro_scene_2_script.gd" id="2_ffn4k"]
+[ext_resource type="Script" path="res://scene/button_2_script.gd" id="4_gcw4x"]
+[ext_resource type="Texture2D" uid="uid://snyf7g2ygild" path="res://asset/Buttons/Fichier 4.png" id="5_xh1k3"]
+[ext_resource type="Texture2D" uid="uid://dcfqs7o5goef1" path="res://asset/Buttons/Fichier 3.png" id="6_fa265"]
+[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="6_ijxuf"]
+[ext_resource type="Script" path="res://scene/button_1_script.gd" id="8_5aov4"]
+
+[sub_resource type="Animation" id="Animation_2jkp7"]
+resource_name = "writing"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrvgp"]
+_data = {
+"writing": SubResource("Animation_2jkp7")
+}
+
+[sub_resource type="Environment" id="Environment_sr8bu"]
+background_mode = 1
+
+[node name="IntroScene2" type="Node3D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 5.0
+offset_top = 39.0
+offset_right = 240.0
+offset_bottom = 104.0
+theme_override_fonts/normal_font = ExtResource("1_hi5ns")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "Question : 1
+
+de quel animal s'agit-il ?
+
+1. Un chat                 2.[rainbow]Un Ptérodactyle"
+scroll_active = false
+scroll_following = true
+visible_characters = 17
+visible_ratio = 0.2
+script = ExtResource("2_ffn4k")
+speed = 0.35
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_lrvgp")
+}
+autoplay = "writing"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sr8bu")
+
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.876718)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(206, 22)
+scale = Vector2(0.0268486, 0.0259946)
+texture = ExtResource("1_7k5kx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ijxuf")
+
+[node name="Button_2" type="CanvasLayer" parent="."]
+script = ExtResource("4_gcw4x")
+
+[node name="Control" type="Control" parent="Button_2"]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Button_2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 104.0
+offset_right = 54.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+icon = ExtResource("5_xh1k3")
+flat = true
+expand_icon = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Button_2/Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 103.0
+offset_right = 37.0
+offset_bottom = 128.0
+text = "2."
+
+[node name="Sprite2D" type="Sprite2D" parent="Button_2/Control"]
+visible = false
+position = Vector2(49.225, 115)
+scale = Vector2(0.327586, 0.327586)
+texture = ExtResource("6_fa265")
+
+[node name="Button_1" type="CanvasLayer" parent="."]
+script = ExtResource("8_5aov4")
+
+[node name="Control" type="Control" parent="Button_1"]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_right = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Button_1/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 104.0
+offset_right = 54.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+icon = ExtResource("5_xh1k3")
+flat = true
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Button_1/Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 103.0
+offset_right = 37.0
+offset_bottom = 128.0
+text = "1."
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Button_1/Control"]
+visible = false
+position = Vector2(49.225, 115)
+scale = Vector2(0.327586, 0.327586)
+texture = ExtResource("6_fa265")
+
+[connection signal="pressed" from="Button_2/Control/Button" to="Button_2" method="_on_button_pressed"]
+[connection signal="pressed" from="Button_1/Control/Button" to="Button_1" method="_on_button_pressed"]

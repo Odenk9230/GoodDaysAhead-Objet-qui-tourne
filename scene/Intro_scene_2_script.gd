@@ -15,5 +15,5 @@ func _process(delta: float) -> void:
 	if !$"../AudioStreamPlayer".playing and visible_ratio<1:
 		$"../AudioStreamPlayer".play()
 	if visible_ratio>0.99:
-		$"../CanvasLayer".visible = true
+		$"../Button_2".visible = true
 		

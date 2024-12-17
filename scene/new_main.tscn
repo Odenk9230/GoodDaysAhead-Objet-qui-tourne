@@ -24,7 +24,7 @@ albedo_color = Color(0.884265, 0.623755, 0.395094, 1)
 roughness = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tfb63"]
-size = Vector3(0.1, 0.4, 0.4)
+size = Vector3(0.1, 0.5, 0.5)
 
 [sub_resource type="SphereMesh" id="SphereMesh_j3txo"]
 radius = 0.05
@@ -78,13 +78,15 @@ script = ExtResource("2_in6wi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_rl06d")
 
-[node name="Face 1" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face1" type="Node3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.738048, 0, -0.426112)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 1"]
+[node name="AreaFace1" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face1/AreaFace1"]
 shape = SubResource("BoxShape3D_tfb63")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 1"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face1/AreaFace1"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
 
@@ -97,7 +99,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 2"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 3" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.738048, 0, 0.426112)
@@ -108,7 +110,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 3"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 4" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -0.738047, 0, -0.426112)
@@ -119,7 +121,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 4"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 5" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0.426112, 0.738048, 0)
@@ -130,7 +132,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 5"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 6" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(-0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, -0.426112, 0.738047, 0)
@@ -141,7 +143,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 6"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 7" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(-0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0, 1, -0.426112, -0.738048, 0)
@@ -152,7 +154,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 7"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 8" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0.426112, -0.738047, 0)
@@ -163,7 +165,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 8"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 9" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(-3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 1.77636e-15, -0.866025, 0.5, -4.37114e-08, -3.22611e-08, 0.426112, -0.738048)
@@ -174,7 +176,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 9"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 10" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(-3.78552e-08, -2.18557e-08, 1, -0.5, 0.866025, 1.77636e-15, -0.866025, -0.5, -4.37114e-08, -3.22611e-08, -0.426112, -0.738048)
@@ -185,7 +187,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 10"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 11" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(3.78552e-08, 2.18557e-08, 1, 0.5, -0.866025, -1.06581e-14, 0.866025, 0.5, -4.37114e-08, 3.22611e-08, 0.426112, 0.738048)
@@ -196,7 +198,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 11"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="Face 12" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
 transform = Transform3D(3.78552e-08, -2.18557e-08, 1, -0.5, -0.866025, -8.88178e-15, 0.866025, -0.5, -4.37114e-08, 3.22611e-08, -0.426112, 0.738047)
@@ -207,7 +209,7 @@ shape = SubResource("BoxShape3D_tfb63")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 12"]
 visible = false
 mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face 1")
+skeleton = NodePath("../../Face1/AreaFace1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_clmqr")

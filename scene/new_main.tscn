@@ -1,9 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctp3o5vt4j5cg"]
+[gd_scene load_steps=28 format=3 uid="uid://ctp3o5vt4j5cg"]
 
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0tvj2"]
 [ext_resource type="Script" path="res://code/camera.gd" id="1_m8qny"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_vy0se"]
 [ext_resource type="PackedScene" uid="uid://7bd2ygnlblpl" path="res://asset/Dodecaedre.glb" id="1_xy4bk"]
 [ext_resource type="Script" path="res://code/dodecaedre.gd" id="2_in6wi"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_oeh3x"]
 [ext_resource type="Shader" path="res://asset/shader/pixelart_stylizer.gdshader" id="2_up0w7"]
+[ext_resource type="Script" path="res://code/test_viseur.gd" id="3_ym0gy"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_00iq3"]
+
+[sub_resource type="Resource" id="Resource_u53yf"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avqx0"]
+size = Vector3(0.1, 0.5, 0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qjins"]
 size = Vector2(10, 10)
@@ -23,12 +37,77 @@ diffuse_mode = 3
 albedo_color = Color(0.884265, 0.623755, 0.395094, 1)
 roughness = 0.01
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tfb63"]
-size = Vector3(0.1, 0.5, 0.5)
+[sub_resource type="Resource" id="Resource_al0va"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
 
-[sub_resource type="SphereMesh" id="SphereMesh_j3txo"]
-radius = 0.05
-height = 0.1
+[sub_resource type="Resource" id="Resource_l84lo"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_buvh1"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_vsan1"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_jjaw0"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_kuplg"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_qniua"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_ck55n"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_62vkn"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_tnjdl"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_vrfeb"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_ru5nn"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
 
 [sub_resource type="Environment" id="Environment_clmqr"]
 background_mode = 1
@@ -39,11 +118,25 @@ ambient_light_sky_contribution = 0.17
 tonemap_mode = 2
 volumetric_fog_density = 0.2921
 
-[node name="Node3D" type="Node3D"]
+[node name="Main" type="Node3D"]
+script = ExtResource("1_vy0se")
+
+[node name="MainPcam" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.84885, 0, 0)
+script = ExtResource("1_0tvj2")
+priority = 5
+tween_resource = SubResource("Resource_u53yf")
+
+[node name="AreaViseur" type="Area3D" parent="MainPcam"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.75099e-07, 0, -4.00581)
+script = ExtResource("3_ym0gy")
+
+[node name="HitboxViseur" type="CollisionShape3D" parent="MainPcam/AreaViseur"]
+shape = SubResource("BoxShape3D_avqx0")
+disabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.84885, 0, 0)
-projection = 1
 current = true
 size = 4.7
 near = 0.001
@@ -53,6 +146,11 @@ script = ExtResource("1_m8qny")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 7.35393e-08, 0, -0.812382)
 mesh = SubResource("PlaneMesh_qjins")
 surface_material_override/0 = SubResource("ShaderMaterial_l8xjd")
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_00iq3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(0.82066, -0.454635, 0.346157, -0.253404, 0.253404, 0.93358, -0.512156, -0.85387, 0.0927524, -2.17954, -3.21409, -1.78814e-07)
@@ -68,150 +166,109 @@ directional_shadow_split_1 = 0.032
 [node name="GestionnaireDodecaedre" type="Node3D" parent="."]
 script = ExtResource("2_in6wi")
 
-[node name="BrasHorizontal" type="Node3D" parent="GestionnaireDodecaedre"]
+[node name="Dodecaedre" parent="GestionnaireDodecaedre" instance=ExtResource("1_xy4bk")]
 
-[node name="BrasVertical" type="Node3D" parent="GestionnaireDodecaedre/BrasHorizontal"]
-
-[node name="Dodecaedre" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical" instance=ExtResource("1_xy4bk")]
-
-[node name="Solid" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre" index="0"]
+[node name="Solid" parent="GestionnaireDodecaedre/Dodecaedre" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_rl06d")
 
-[node name="Face1" type="Node3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face1" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.738048, 0, -0.426112)
 
-[node name="AreaFace1" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face1"]
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face1" groups=["pcam_face"]]
+transform = Transform3D(-4.37113e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_al0va")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face1/AreaFace1"]
-shape = SubResource("BoxShape3D_tfb63")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face1/AreaFace1"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-
-[node name="Face 2" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face2" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.738048, 0, 0.426112)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 2"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face2" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_l84lo")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 2"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 3" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face3" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.738048, 0, 0.426112)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 3"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face3" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_buvh1")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 3"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 4" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face4" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -0.738047, 0, -0.426112)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 4"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face4" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_vsan1")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 4"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 5" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face5" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0.426112, 0.738048, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 5"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face5" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_jjaw0")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 5"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 6" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face6" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(-0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, -0.426112, 0.738047, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 6"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face6" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_kuplg")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 6"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 7" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face7" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(-0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0, 1, -0.426112, -0.738048, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 7"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face7" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_qniua")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 7"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 8" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face8" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0.426112, -0.738047, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 8"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face8" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_ck55n")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 8"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 9" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face9" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(-3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 1.77636e-15, -0.866025, 0.5, -4.37114e-08, -3.22611e-08, 0.426112, -0.738048)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 9"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face9" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_62vkn")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 9"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 10" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face10" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(-3.78552e-08, -2.18557e-08, 1, -0.5, 0.866025, 1.77636e-15, -0.866025, -0.5, -4.37114e-08, -3.22611e-08, -0.426112, -0.738048)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 10"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face10" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_tnjdl")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 10"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 11" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face11" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(3.78552e-08, 2.18557e-08, 1, 0.5, -0.866025, -1.06581e-14, 0.866025, 0.5, -4.37114e-08, 3.22611e-08, 0.426112, 0.738048)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 11"]
-shape = SubResource("BoxShape3D_tfb63")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face11" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_vrfeb")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 11"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
-
-[node name="Face 12" type="Area3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[node name="Face12" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(3.78552e-08, -2.18557e-08, 1, -0.5, -0.866025, -8.88178e-15, 0.866025, -0.5, -4.37114e-08, 3.22611e-08, -0.426112, 0.738047)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 12"]
-shape = SubResource("BoxShape3D_tfb63")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre/Face 12"]
-visible = false
-mesh = SubResource("SphereMesh_j3txo")
-skeleton = NodePath("../../Face1/AreaFace1")
+[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face12" groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_0tvj2")
+tween_resource = SubResource("Resource_ru5nn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_clmqr")
 
-[editable path="GestionnaireDodecaedre/BrasHorizontal/BrasVertical/Dodecaedre"]
+[editable path="GestionnaireDodecaedre/Dodecaedre"]

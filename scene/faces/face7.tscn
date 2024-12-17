@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdm1jutx8vdna"]
+
+[ext_resource type="Script" path="res://code/Faces/face7.gd" id="1_iibeh"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_xix1n"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_eip7t"]
+
+[sub_resource type="Resource" id="Resource_qniua"]
+script = ExtResource("3_eip7t")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Face7" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_iibeh")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("2_xix1n")
+tween_resource = SubResource("Resource_qniua")

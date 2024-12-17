@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://6w1gaviy3yar"]
+
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_kchku"]
+[ext_resource type="Script" path="res://code/Faces/face3.gd" id="1_nu6vf"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_6254b"]
+
+[sub_resource type="Resource" id="Resource_buvh1"]
+script = ExtResource("2_6254b")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Face3" type="Node3D"]
+script = ExtResource("1_nu6vf")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+script = ExtResource("1_kchku")
+tween_resource = SubResource("Resource_buvh1")

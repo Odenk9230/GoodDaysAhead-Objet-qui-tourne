@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ctp3o5vt4j5cg"]
+[gd_scene load_steps=28 format=3 uid="uid://ctp3o5vt4j5cg"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0tvj2"]
 [ext_resource type="Script" path="res://code/camera.gd" id="1_m8qny"]
@@ -9,7 +9,18 @@
 [ext_resource type="Shader" path="res://asset/shader/pixelart_stylizer.gdshader" id="2_up0w7"]
 [ext_resource type="Script" path="res://code/test_viseur.gd" id="3_ym0gy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_00iq3"]
-[ext_resource type="Script" path="res://code/Faces/face1.gd" id="10_52n8n"]
+[ext_resource type="PackedScene" uid="uid://428ue6p7g7d6" path="res://scene/faces/face1.tscn" id="10_fg5dp"]
+[ext_resource type="PackedScene" uid="uid://r2pf8fwlee5v" path="res://scene/faces/face2.tscn" id="11_gsagp"]
+[ext_resource type="PackedScene" uid="uid://6w1gaviy3yar" path="res://scene/faces/face3.tscn" id="12_8sd3q"]
+[ext_resource type="PackedScene" uid="uid://movswt56il5g" path="res://scene/faces/face4.tscn" id="13_woayb"]
+[ext_resource type="PackedScene" uid="uid://bpoa5yekv0ejk" path="res://scene/faces/face5.tscn" id="14_l6738"]
+[ext_resource type="PackedScene" uid="uid://chqprqchtbh77" path="res://scene/faces/face6.tscn" id="15_rworp"]
+[ext_resource type="PackedScene" uid="uid://cdm1jutx8vdna" path="res://scene/faces/face7.tscn" id="16_lbv5i"]
+[ext_resource type="PackedScene" uid="uid://d3smyyhrsmwcp" path="res://scene/faces/face8.tscn" id="17_4l7xk"]
+[ext_resource type="PackedScene" uid="uid://gp2vcn56e5ia" path="res://scene/faces/face9.tscn" id="18_56tr3"]
+[ext_resource type="PackedScene" uid="uid://d1hubthoxyxpe" path="res://scene/faces/face10.tscn" id="19_qhynv"]
+[ext_resource type="PackedScene" uid="uid://dwnt4bt75lt0d" path="res://scene/faces/face11.tscn" id="20_1wdt6"]
+[ext_resource type="PackedScene" uid="uid://bopslmagdi4lr" path="res://scene/faces/face12.tscn" id="21_rc3gx"]
 
 [sub_resource type="Resource" id="Resource_u53yf"]
 script = ExtResource("2_oeh3x")
@@ -37,82 +48,6 @@ shader_parameter/shadow_color = Color(0, 0, 0, 1)
 diffuse_mode = 3
 albedo_color = Color(0.884265, 0.623755, 0.395094, 1)
 roughness = 0.01
-
-[sub_resource type="Resource" id="Resource_al0va"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="SphereMesh" id="SphereMesh_374oe"]
-radius = 0.1
-height = 0.2
-
-[sub_resource type="Resource" id="Resource_l84lo"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_buvh1"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_vsan1"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_jjaw0"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_kuplg"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_qniua"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_ck55n"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_62vkn"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_tnjdl"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_vrfeb"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_ru5nn"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
 
 [sub_resource type="Environment" id="Environment_clmqr"]
 background_mode = 1
@@ -178,107 +113,41 @@ script = ExtResource("2_in6wi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_rl06d")
 
-[node name="Face1" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.738048, 0, -0.426112)
-script = ExtResource("10_52n8n")
-
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face1" groups=["pcam_face"]]
-transform = Transform3D(-4.37113e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_al0va")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GestionnaireDodecaedre/Dodecaedre/Face1"]
-transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 0, 0, 0)
-mesh = SubResource("SphereMesh_374oe")
-skeleton = NodePath("../../../..")
-
-[node name="Face2" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
+[node name="Face1" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("10_fg5dp")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.738048, 0, 0.426112)
 
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face2" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_l84lo")
+[node name="Face2" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("11_gsagp")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.738048, 0, -0.426112)
 
-[node name="Face3" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.738048, 0, 0.426112)
+[node name="Face3" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("12_8sd3q")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.738, 0, 0.426)
 
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face3" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_buvh1")
+[node name="Face4" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("13_woayb")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -0.738, 0, -0.426)
 
-[node name="Face4" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -0.738047, 0, -0.426112)
+[node name="Face5" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("14_l6738")]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0.426, 0.738, 0)
 
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face4" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_vsan1")
+[node name="Face6" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("15_rworp")]
+transform = Transform3D(-0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, -0.426, 0.738, 0)
 
-[node name="Face5" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0.426112, 0.738048, 0)
+[node name="Face7" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("16_lbv5i")]
+transform = Transform3D(-0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0, 1, -0.426, -0.738, 0)
 
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face5" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_jjaw0")
+[node name="Face8" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("17_4l7xk")]
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0.426, -0.738, 0)
 
-[node name="Face6" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(-0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, -0.426112, 0.738047, 0)
+[node name="Face9" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("18_56tr3")]
+transform = Transform3D(-3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 0, -0.866025, 0.5, -4.37114e-08, 0, 0.426, -0.738)
 
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face6" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_kuplg")
+[node name="Face10" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("19_qhynv")]
+transform = Transform3D(-3.78552e-08, -2.18557e-08, 1, -0.5, 0.866025, 0, -0.866025, -0.5, -4.37114e-08, 0, -0.426, -0.738)
 
-[node name="Face7" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(-0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0, 1, -0.426112, -0.738048, 0)
+[node name="Face11" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("20_1wdt6")]
+transform = Transform3D(3.78552e-08, 2.18557e-08, 1, 0.5, -0.866025, 0, 0.866025, 0.5, -4.37114e-08, 0, 0.426, 0.738)
 
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face7" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_qniua")
-
-[node name="Face8" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0.426112, -0.738047, 0)
-
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face8" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_ck55n")
-
-[node name="Face9" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(-3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 1.77636e-15, -0.866025, 0.5, -4.37114e-08, -3.22611e-08, 0.426112, -0.738048)
-
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face9" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_62vkn")
-
-[node name="Face10" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(-3.78552e-08, -2.18557e-08, 1, -0.5, 0.866025, 1.77636e-15, -0.866025, -0.5, -4.37114e-08, -3.22611e-08, -0.426112, -0.738048)
-
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face10" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_tnjdl")
-
-[node name="Face11" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(3.78552e-08, 2.18557e-08, 1, 0.5, -0.866025, -1.06581e-14, 0.866025, 0.5, -4.37114e-08, 3.22611e-08, 0.426112, 0.738048)
-
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face11" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_vrfeb")
-
-[node name="Face12" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
-transform = Transform3D(3.78552e-08, -2.18557e-08, 1, -0.5, -0.866025, -8.88178e-15, 0.866025, -0.5, -4.37114e-08, 3.22611e-08, -0.426112, 0.738047)
-
-[node name="PhantomCamera3D" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre/Face12" groups=["pcam_face"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
-script = ExtResource("1_0tvj2")
-tween_resource = SubResource("Resource_ru5nn")
+[node name="Face12" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("21_rc3gx")]
+transform = Transform3D(3.78552e-08, -2.18557e-08, 1, -0.5, -0.866025, 0, 0.866025, -0.5, -4.37114e-08, 0, -0.426, 0.738)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_clmqr")

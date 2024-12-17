@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ctp3o5vt4j5cg"]
+[gd_scene load_steps=30 format=3 uid="uid://ctp3o5vt4j5cg"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0tvj2"]
 [ext_resource type="Script" path="res://code/camera.gd" id="1_m8qny"]
@@ -43,6 +43,10 @@ script = ExtResource("2_oeh3x")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_374oe"]
+radius = 0.1
+height = 0.2
 
 [sub_resource type="Resource" id="Resource_l84lo"]
 script = ExtResource("2_oeh3x")
@@ -182,6 +186,11 @@ script = ExtResource("10_52n8n")
 transform = Transform3D(-4.37113e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113e-08, 1, 0, 0)
 script = ExtResource("1_0tvj2")
 tween_resource = SubResource("Resource_al0va")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GestionnaireDodecaedre/Dodecaedre/Face1"]
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 0, 0, 0)
+mesh = SubResource("SphereMesh_374oe")
+skeleton = NodePath("../../../..")
 
 [node name="Face2" type="Node3D" parent="GestionnaireDodecaedre/Dodecaedre"]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.738048, 0, 0.426112)

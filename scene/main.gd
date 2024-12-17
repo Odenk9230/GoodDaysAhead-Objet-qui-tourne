@@ -8,7 +8,7 @@ extends Node3D
 
 @onready var pcam_host : PhantomCameraHost = $Camera3D/PhantomCameraHost
 
-@onready var face_active : Node3D
+@onready var face_active : Face
 
 var distance_max : float = 3.5
 
@@ -33,11 +33,13 @@ func _on_arret_rotation():
 	if pcam_proche :
 		pcam_proche.set_priority(10)
 		face_active = pcam_proche.get_parent()
+		face_active._face_on()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		var pcam_active : PhantomCamera3D = pcam_host.get_active_pcam()	
 		if pcam_active.is_in_group("pcam_face") :
 			pcam_active.set_priority(0)
+			face_active._face_off()
 			face_active = null
 		

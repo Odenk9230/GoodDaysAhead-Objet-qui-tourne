@@ -5,10 +5,10 @@ func _ready() -> void:
 	pass 
 
 func _face_on():
-	$MeshInstance3D.scale = Vector3(2,2,2)
+	pass
 
 func _face_off():
-	$MeshInstance3D.scale = Vector3(1,1,1)
+	pass
 
 func _process(delta: float) -> void:
 	pass

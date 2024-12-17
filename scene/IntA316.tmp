@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://rth4v0p3sp6w"]
+
+[ext_resource type="FontFile" uid="uid://3ncgc61je1xp" path="res://Fonts/F25_Bank_Printer.ttf" id="1_dqg0s"]
+[ext_resource type="Script" path="res://scene/rich_text_label.gd" id="2_wqyhq"]
+[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="3_84dhs"]
+[ext_resource type="Texture2D" uid="uid://ecbwkirhdnmk" path="res://asset/Buttons/Fichier 2.png" id="4_b8h8p"]
+
+[sub_resource type="Animation" id="Animation_2jkp7"]
+resource_name = "writing"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrvgp"]
+_data = {
+"writing": SubResource("Animation_2jkp7")
+}
+
+[sub_resource type="Environment" id="Environment_pvp24"]
+background_mode = 1
+
+[node name="IntroScene1" type="Node3D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 26.0
+offset_top = 25.0
+offset_right = 213.0
+offset_bottom = 91.0
+theme_override_fonts/normal_font = ExtResource("1_dqg0s")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "Welcome...
+
+Anwser to the best of your capacity
+
+and avoir the concequences of [shake]YOUR MISTAKES"
+scroll_active = false
+scroll_following = true
+visible_characters = 18
+visible_ratio = 0.2
+script = ExtResource("2_wqyhq")
+speed = 0.35
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_lrvgp")
+}
+autoplay = "writing"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pvp24")
+
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.876718)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_84dhs")
+
+[node name="Skip button" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(207, 112)
+scale = Vector2(0.117978, 0.117978)
+texture = ExtResource("4_b8h8p")

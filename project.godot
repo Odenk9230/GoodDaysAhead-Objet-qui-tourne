@@ -13,3 +13,12 @@ config_version=5
 config/name="GoodDayAhead"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://asset/icon.svg"
+
+[display]
+
+window/size/viewport_width=240
+window/size/viewport_height=135
+window/size/window_width_override=940
+window/size/window_height_override=540
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"

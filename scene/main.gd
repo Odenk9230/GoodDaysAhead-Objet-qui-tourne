@@ -15,6 +15,7 @@ var distance_max : float = 3.5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	gestionnaire_dodecaedre.arret.connect(_on_arret_rotation)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_arret_rotation():
 	var distance_min
@@ -34,6 +35,7 @@ func _on_arret_rotation():
 		pcam_proche.set_priority(10)
 		face_active = pcam_proche.get_parent()
 		face_active._face_on()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -42,4 +44,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			pcam_active.set_priority(0)
 			face_active._face_off()
 			face_active = null
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
 		

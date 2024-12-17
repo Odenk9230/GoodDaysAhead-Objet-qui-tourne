@@ -9,8 +9,6 @@ signal arret
 
 @onready var dodecaedre = get_child(0)
 
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
 	

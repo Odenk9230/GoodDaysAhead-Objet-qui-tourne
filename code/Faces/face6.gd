@@ -1,6 +1,7 @@
 extends Face
 
 @onready var roue = $MeshRoue
+@onready var pointeur = $Pointeur
 
 var relache = false
 var appui = false
@@ -39,3 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		appui = false
 		relache = true
 		roue._faire_tourner(dose_appui*10)
+
+
+func _on_pointeur_area_entered(area: Area3D) -> void:
+	pointeur.appliquer_force(-roue.accelerotation * 0.5)

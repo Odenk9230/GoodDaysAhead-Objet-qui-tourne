@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://code/test_viseur.gd" id="3_ym0gy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_00iq3"]
 [ext_resource type="PackedScene" uid="uid://428ue6p7g7d6" path="res://scene/faces/face1.tscn" id="10_fg5dp"]
-[ext_resource type="PackedScene" path="res://scene/faces/face_fils.tscn" id="11_gsagp"]
+[ext_resource type="PackedScene" uid="uid://r2pf8fwlee5v" path="res://scene/faces/face_fils.tscn" id="11_gsagp"]
 [ext_resource type="PackedScene" uid="uid://6w1gaviy3yar" path="res://scene/faces/face3.tscn" id="12_8sd3q"]
 [ext_resource type="PackedScene" uid="uid://movswt56il5g" path="res://scene/faces/face4.tscn" id="13_woayb"]
 [ext_resource type="PackedScene" uid="uid://bpoa5yekv0ejk" path="res://scene/faces/face5.tscn" id="14_l6738"]
@@ -147,7 +147,7 @@ transform = Transform3D(-3.78552e-08, -2.18557e-08, 1, -0.5, 0.866025, 0, -0.866
 transform = Transform3D(3.78552e-08, 2.18557e-08, 1, 0.5, -0.866025, 0, 0.866025, 0.5, -4.37114e-08, 0, 0.426, 0.738)
 
 [node name="Face12" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("21_rc3gx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.426, 0.674149)
+transform = Transform3D(-0.0660997, 0, -0.997813, -0.577191, 0.815714, 0.0382358, 0.81393, 0.578456, -0.0539185, 0, -0.426, 0.674149)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_clmqr")

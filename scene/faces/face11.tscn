@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwnt4bt75lt0d"]
+[gd_scene load_steps=13 format=3 uid="uid://dwnt4bt75lt0d"]
 
 [ext_resource type="Script" path="res://code/Faces/face11.gd" id="1_5npai"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_uh15n"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_stbqv"]
+[ext_resource type="Script" path="res://scene/faces/fish.gd" id="4_xxj1o"]
 
 [sub_resource type="Resource" id="Resource_vrfeb"]
 script = ExtResource("3_stbqv")
@@ -10,11 +11,69 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[node name="Face11" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[sub_resource type="BoxMesh" id="BoxMesh_inc74"]
+size = Vector3(0.03, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iavcf"]
+albedo_color = Color(0.542917, 0.617718, 0.743522, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3ntp"]
+size = Vector3(1, 0.189758, 0.284485)
+
+[sub_resource type="BoxMesh" id="BoxMesh_quaou"]
+size = Vector3(0.03, 0.19, 0.285)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7jk6"]
+albedo_color = Color(0.342023, 0.602545, 0.395903, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_m1jqn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wg72p"]
+radius = 0.496161
+
+[node name="Face11" type="Node3D" node_paths=PackedStringArray("jauge", "timer")]
 script = ExtResource("1_5npai")
+jauge = NodePath("main jauge/area")
+timer = NodePath("WinTimer")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 script = ExtResource("2_uh15n")
 tween_resource = SubResource("Resource_vrfeb")
+
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera3D"]
+
+[node name="main jauge" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.765, 0, 0, 0, 0.765, 0, 0, 0, 0.765, -0.05, 0, 0)
+mesh = SubResource("BoxMesh_inc74")
+skeleton = NodePath("area/jauge")
+surface_material_override/0 = SubResource("StandardMaterial3D_iavcf")
+
+[node name="area" type="Area3D" parent="main jauge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0, -0.358)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main jauge/area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000274658, -3.05474e-05)
+shape = SubResource("BoxShape3D_y3ntp")
+
+[node name="jauge" type="MeshInstance3D" parent="main jauge/area"]
+mesh = SubResource("BoxMesh_quaou")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_c7jk6")
+
+[node name="Area3D" type="Area3D" parent="main jauge" groups=["control"]]
+script = ExtResource("4_xxj1o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main jauge/Area3D"]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0, -0.381732)
+mesh = SubResource("SphereMesh_m1jqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main jauge/Area3D"]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0, -0.381732)
+shape = SubResource("SphereShape3D_wg72p")
+
+[node name="WinTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="main jauge/area" to="." method="_on_area_area_entered"]
+[connection signal="area_exited" from="main jauge/area" to="." method="_on_area_area_exited"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]

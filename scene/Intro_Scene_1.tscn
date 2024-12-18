@@ -34,7 +34,7 @@ Repondez au questions
 ne faites [shake] PAS D'ERREURS"
 scroll_active = false
 scroll_following = true
-visible_characters = 18
+visible_characters = 12
 visible_ratio = 0.2
 script = ExtResource("2_wqyhq")
 speed = 0.35

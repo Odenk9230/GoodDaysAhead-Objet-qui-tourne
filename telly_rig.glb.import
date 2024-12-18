@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3ti3mq5mmbkh"
-path="res://.godot/imported/Nuclear_button.glb-6fe1746ad7b4b0e481d209561dbe70be.scn"
+uid="uid://udflaii712hs"
+path="res://.godot/imported/telly_rig.glb-373fdd96189565badca2e3e305fed877.scn"
 
 [deps]
 
-source_file="res://asset/Nuclear_Button/Nuclear_button.glb"
-dest_files=["res://.godot/imported/Nuclear_button.glb-6fe1746ad7b4b0e481d209561dbe70be.scn"]
+source_file="res://telly_rig.glb"
+dest_files=["res://.godot/imported/telly_rig.glb-373fdd96189565badca2e3e305fed877.scn"]
 
 [params]
 

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv0vdx06d4jfe"]
+
+[ext_resource type="Script" path="res://code/telly_controller.gd" id="1_lfs5f"]
+[ext_resource type="PackedScene" uid="uid://udflaii712hs" path="res://telly_rig.glb" id="2_ktxw7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7biq"]
+
+[node name="telly_controller" type="CharacterBody3D"]
+script = ExtResource("1_lfs5f")
+
+[node name="telly_rig" parent="." instance=ExtResource("2_ktxw7")]
+transform = Transform3D(0.000892691, 0, 0.049992, 0, 0.05, 0, -0.049992, 0, 0.000892691, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0376079, 0.144771, 0)
+shape = SubResource("CapsuleShape3D_x7biq")
+
+[node name="TwistPivot" type="Node3D" parent="."]
+
+[node name="PitchPivot" type="Node3D" parent="TwistPivot"]

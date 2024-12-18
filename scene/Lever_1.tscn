@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cm7qwutxmrn67"]
+[gd_scene load_steps=18 format=4 uid="uid://bef84lc0ss7fh"]
 
 [ext_resource type="Texture2D" uid="uid://geeroqny2xbo" path="res://asset/Lever_1/Lever_1_plastic-generic_diffuse.jpg" id="1_gdyys"]
 [ext_resource type="Texture2D" uid="uid://ctdnerxqun5cl" path="res://asset/Lever_1/Lever_1_plastic-smudge-smoothness copy.png" id="2_cmb6y"]

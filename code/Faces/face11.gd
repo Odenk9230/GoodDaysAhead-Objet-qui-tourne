@@ -11,6 +11,7 @@ var duration = 2.0
 var dir: float = 1
 
 func _ready() -> void:
+	isMoving = false
 	pass 
 
 func _face_on():

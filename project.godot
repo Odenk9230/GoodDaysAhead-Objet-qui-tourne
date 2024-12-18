@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GoodDayAhead"
-run/main_scene="res://scene/new_main.tscn"
+run/main_scene="res://scene/Intro_Scene_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://asset/icon.svg"
 

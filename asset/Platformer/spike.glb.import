@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8ra50aw0q6lx"
-path="res://.godot/imported/exit_button.glb-f45d0dd604feb45ca73e3fd1d63ae451.scn"
+uid="uid://djb2ichcpm3o8"
+path="res://.godot/imported/spike.glb-e22c5af80ec8280e5382f80af644f306.scn"
 
 [deps]
 
-source_file="res://asset/glb/exit_button.glb"
-dest_files=["res://.godot/imported/exit_button.glb-f45d0dd604feb45ca73e3fd1d63ae451.scn"]
+source_file="res://asset/Platformer/spike.glb"
+dest_files=["res://.godot/imported/spike.glb-e22c5af80ec8280e5382f80af644f306.scn"]
 
 [params]
 

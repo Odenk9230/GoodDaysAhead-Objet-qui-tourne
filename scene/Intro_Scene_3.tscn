@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dfroapbl157b1" path="res://asset/elephant.png" id="1_1rbxi"]
 [ext_resource type="FontFile" uid="uid://3ncgc61je1xp" path="res://Fonts/F25_Bank_Printer.ttf" id="1_ebl5j"]
 [ext_resource type="Texture2D" uid="uid://ck5qmihwpjwo6" path="res://asset/elephant_normal.png" id="2_6xbv2"]
-[ext_resource type="Script" path="res://intro_scene_3_script.gd" id="4_dl2ke"]
+[ext_resource type="Script" path="res://scene/intro_scene_3_script.gd" id="4_dl2ke"]
 [ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="5_jhgts"]
 [ext_resource type="Script" path="res://scene/tex_script_intro_scene_3.gd" id="5_ue1ni"]
 [ext_resource type="Script" path="res://scene/script_button_2_intro_scene_3.gd" id="6_1l5qq"]
@@ -29,7 +29,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Timer_lauch_real_game" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 4.5
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

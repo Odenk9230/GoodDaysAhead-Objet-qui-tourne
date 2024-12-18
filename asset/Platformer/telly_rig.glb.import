@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://udflaii712hs"
-path="res://.godot/imported/telly_rig.glb-373fdd96189565badca2e3e305fed877.scn"
+path="res://.godot/imported/telly_rig.glb-07f56746e199e17f825951249644eead.scn"
 
 [deps]
 
-source_file="res://telly_rig.glb"
-dest_files=["res://.godot/imported/telly_rig.glb-373fdd96189565badca2e3e305fed877.scn"]
+source_file="res://asset/Platformer/telly_rig.glb"
+dest_files=["res://.godot/imported/telly_rig.glb-07f56746e199e17f825951249644eead.scn"]
 
 [params]
 

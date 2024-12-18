@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://movswt56il5g"]
+[gd_scene load_steps=12 format=3 uid="uid://movswt56il5g"]
 
 [ext_resource type="Script" path="res://code/Faces/face4.gd" id="1_hjk7m"]
+[ext_resource type="PackedScene" uid="uid://178b0v14nvj1" path="res://scene/Nuclear_button_1.tscn" id="2_bkud7"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_py1hc"]
+[ext_resource type="Script" path="res://scene/nuclear_button_script.gd" id="3_3u0t3"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_i0y70"]
+[ext_resource type="SpriteFrames" uid="uid://r1t7gu0f0feb" path="res://asset/animations/Punchout/anim_punchout.tres" id="4_q7ek3"]
+[ext_resource type="Texture2D" uid="uid://bkgrv5s1un0lx" path="res://asset/animations/Punchout/retro_Screen.png" id="4_w46qv"]
+[ext_resource type="PackedScene" uid="uid://bv4gqleuvnv3" path="res://asset/retro_screen/retro_screen.glb" id="8_vi1c2"]
+[ext_resource type="FontFile" uid="uid://btxgf8mutov0o" path="res://Fonts/Digital Display.ttf" id="9_ss6j5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejhsl"]
+size = Vector3(1.93756, 1.13617, 2.1142)
 
 [sub_resource type="Resource" id="Resource_vsan1"]
 script = ExtResource("3_i0y70")
@@ -11,10 +20,47 @@ transition = 0
 ease = 2
 
 [node name="Face4" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_hjk7m")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-6.55671e-09, 0.15, 6.55671e-09, 0, -6.55671e-09, 0.15, 0.15, 6.55671e-09, 2.86603e-16, -0.0559314, -0.256991, 0.164159)
+
+[node name="Nuclear_button" parent="Area3D" node_paths=PackedStringArray("anim", "Sprite") instance=ExtResource("2_bkud7")]
+transform = Transform3D(1, -3.55271e-15, 0, 3.55271e-15, 1, -3.55271e-15, 0, 3.55271e-15, 1, 0, 0, 0)
+script = ExtResource("3_3u0t3")
+anim = NodePath("Cylinder_001/AnimationPlayer")
+Sprite = NodePath("../../AnimatedSprite3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, -1.68043e-12, -2.71051e-20, 1.68043e-12, 1, -1.68043e-12, 6.67038e-20, 1.68043e-12, 1, 0.00595093, 0.733307, 0.113678)
+shape = SubResource("BoxShape3D_ejhsl")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 script = ExtResource("2_py1hc")
 tween_resource = SubResource("Resource_vsan1")
+
+[node name="retro_screen" type="Sprite3D" parent="."]
+transform = Transform3D(-1.27856e-07, 0, -2.925, 0, 2.925, 0, 2.925, 0, -1.27856e-07, 0.0161033, 0.0603053, -0.00303826)
+pixel_size = 0.001
+texture = ExtResource("4_w46qv")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-1.41625e-07, 0, -3.24, 0, 3.24, 0, 3.24, 0, -1.41625e-07, 0, 0.116155, 0.00631621)
+pixel_size = 0.003
+sprite_frames = ExtResource("4_q7ek3")
+frame = 4
+frame_progress = 1.0
+
+[node name="retro_screen2" parent="." instance=ExtResource("8_vi1c2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0290695, -0.506138, -0.153917)
+
+[node name="Label3D" type="Label3D" parent="retro_screen2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223916, 0.120936)
+font = ExtResource("9_ss6j5")
+font_size = 25
+outline_size = 0
+
+[connection signal="input_event" from="Area3D" to="Area3D/Nuclear_button" method="_on_area_3d_input_event"]
+
+[editable path="Area3D/Nuclear_button"]

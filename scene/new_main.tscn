@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://code/test_viseur.gd" id="3_ym0gy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_00iq3"]
 [ext_resource type="PackedScene" uid="uid://428ue6p7g7d6" path="res://scene/faces/face1.tscn" id="10_fg5dp"]
-[ext_resource type="PackedScene" uid="uid://r2pf8fwlee5v" path="res://scene/faces/face_fils.tscn" id="11_gsagp"]
+[ext_resource type="PackedScene" path="res://scene/faces/face_fils.tscn" id="11_gsagp"]
 [ext_resource type="PackedScene" uid="uid://6w1gaviy3yar" path="res://scene/faces/face3.tscn" id="12_8sd3q"]
 [ext_resource type="PackedScene" uid="uid://movswt56il5g" path="res://scene/faces/face4.tscn" id="13_woayb"]
 [ext_resource type="PackedScene" uid="uid://bpoa5yekv0ejk" path="res://scene/faces/face5.tscn" id="14_l6738"]

@@ -1,0 +1,188 @@
+[gd_scene load_steps=14 format=3 uid="uid://d25pxjg0w74a7"]
+
+[ext_resource type="Texture2D" uid="uid://dfroapbl157b1" path="res://asset/elephant.png" id="1_1rbxi"]
+[ext_resource type="FontFile" uid="uid://3ncgc61je1xp" path="res://Fonts/F25_Bank_Printer.ttf" id="1_ebl5j"]
+[ext_resource type="Texture2D" uid="uid://ck5qmihwpjwo6" path="res://asset/elephant_normal.png" id="2_6xbv2"]
+[ext_resource type="Script" path="res://intro_scene_3_script.gd" id="4_dl2ke"]
+[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="5_jhgts"]
+[ext_resource type="Script" path="res://scene/tex_script_intro_scene_3.gd" id="5_ue1ni"]
+[ext_resource type="Script" path="res://scene/script_button_2_intro_scene_3.gd" id="6_1l5qq"]
+[ext_resource type="Texture2D" uid="uid://snyf7g2ygild" path="res://asset/Buttons/Fichier 4.png" id="7_8eprl"]
+[ext_resource type="Texture2D" uid="uid://dcfqs7o5goef1" path="res://asset/Buttons/Fichier 3.png" id="8_p7rld"]
+[ext_resource type="Script" path="res://scene/script_button_1_intro_scene_3.gd" id="9_i3dly"]
+
+[sub_resource type="Animation" id="Animation_2jkp7"]
+resource_name = "writing"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrvgp"]
+_data = {
+"writing": SubResource("Animation_2jkp7")
+}
+
+[sub_resource type="Environment" id="Environment_sr8bu"]
+background_mode = 1
+
+[node name="IntroScene2" type="Node3D"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(203.641, 34.1887)
+scale = Vector2(0.221556, 0.214509)
+texture = ExtResource("1_1rbxi")
+
+[node name="Cat_Normal" type="Sprite2D" parent="."]
+position = Vector2(203.641, 34.189)
+scale = Vector2(0.222, 0.215)
+texture = ExtResource("2_6xbv2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 5.0
+offset_top = 39.0
+offset_right = 240.0
+offset_bottom = 104.0
+theme_override_fonts/normal_font = ExtResource("1_ebl5j")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "Question : 2
+
+de quel animal s'agit-il ?
+
+1.[rainbow]Un elephant[/rainbow]                 2.[rainbow]Un chat[/rainbow] "
+scroll_active = false
+scroll_following = true
+visible_characters = 16
+visible_ratio = 0.2
+script = ExtResource("4_dl2ke")
+speed = 0.35
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_lrvgp")
+}
+autoplay = "writing"
+
+[node name="WRONG" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 61.0
+offset_top = 39.0
+offset_right = 168.0
+offset_bottom = 104.0
+theme_override_fonts/normal_font = ExtResource("1_ebl5j")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[shake]WRONG ! ....
+
+THIS IS YOUR LAST CHANCE"
+scroll_active = false
+scroll_following = true
+visible_characters = 7
+visible_ratio = 0.2
+script = ExtResource("5_ue1ni")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sr8bu")
+
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.876718)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jhgts")
+
+[node name="Button_2" type="CanvasLayer" parent="."]
+script = ExtResource("6_1l5qq")
+
+[node name="Control" type="Control" parent="Button_2"]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Button_2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 104.0
+offset_right = 54.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+icon = ExtResource("7_8eprl")
+flat = true
+expand_icon = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Button_2/Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 103.0
+offset_right = 37.0
+offset_bottom = 128.0
+text = "2."
+
+[node name="Sprite2D" type="Sprite2D" parent="Button_2/Control"]
+visible = false
+position = Vector2(49.225, 115)
+scale = Vector2(0.327586, 0.327586)
+texture = ExtResource("8_p7rld")
+
+[node name="Button_1" type="CanvasLayer" parent="."]
+script = ExtResource("9_i3dly")
+
+[node name="Control" type="Control" parent="Button_1"]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_right = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Button_1/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 104.0
+offset_right = 54.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+icon = ExtResource("7_8eprl")
+flat = true
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Button_1/Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 103.0
+offset_right = 37.0
+offset_bottom = 128.0
+text = "1."
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Button_1/Control"]
+visible = false
+position = Vector2(49.225, 115)
+scale = Vector2(0.327586, 0.327586)
+texture = ExtResource("8_p7rld")
+
+[connection signal="timeout" from="Timer" to="WRONG" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Button_2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Button_1" method="_on_timer_timeout"]
+[connection signal="pressed" from="Button_2/Control/Button" to="Button_2" method="_on_button_pressed"]
+[connection signal="pressed" from="Button_1/Control/Button" to="Button_1" method="_on_button_pressed"]

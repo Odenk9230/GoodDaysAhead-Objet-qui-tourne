@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rmm87c2d234h"
-path.s3tc="res://.godot/imported/telly_rig_TellyUVDone.png-7135a6573b6b3da0a4100c8d36eeaded.s3tc.ctex"
+uid="uid://be14mmjncdugw"
+path.s3tc="res://.godot/imported/spike_metal.png-9cd7cb11404e1d991c6932c3f9c9a369.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "023b7dae5cc804232efd65a9395034c9"
+"md5": "d2407535e49011a79d739f2538df9488"
 }
 
 [deps]
 
-source_file="res://telly_rig_TellyUVDone.png"
-dest_files=["res://.godot/imported/telly_rig_TellyUVDone.png-7135a6573b6b3da0a4100c8d36eeaded.s3tc.ctex"]
+source_file="res://asset/Platformer/spike_metal.png"
+dest_files=["res://.godot/imported/spike_metal.png-9cd7cb11404e1d991c6932c3f9c9a369.s3tc.ctex"]
 
 [params]
 

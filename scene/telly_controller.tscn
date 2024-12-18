@@ -1,20 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://bv0vdx06d4jfe"]
 
 [ext_resource type="Script" path="res://code/telly_controller.gd" id="1_lfs5f"]
-[ext_resource type="PackedScene" uid="uid://udflaii712hs" path="res://telly_rig.glb" id="2_ktxw7"]
+[ext_resource type="PackedScene" uid="uid://udflaii712hs" path="res://asset/Platformer/telly_rig.glb" id="2_ga6uq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7biq"]
 
-[node name="telly_controller" type="CharacterBody3D"]
+[node name="telly_controller" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_lfs5f")
 
-[node name="telly_rig" parent="." instance=ExtResource("2_ktxw7")]
-transform = Transform3D(0.000892691, 0, 0.049992, 0, 0.05, 0, -0.049992, 0, 0.000892691, 0, 0, 0)
+[node name="telly_rig" parent="." instance=ExtResource("2_ga6uq")]
+transform = Transform3D(-2.18557e-09, 1.74393e-17, 0.05, 1.74393e-17, 0.05, -1.74393e-17, -0.05, 1.74393e-17, -2.18557e-09, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0376079, 0.144771, 0)
 shape = SubResource("CapsuleShape3D_x7biq")
 
-[node name="TwistPivot" type="Node3D" parent="."]
+[node name="RaycastRight" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 3.48787e-16, -1, -4.37114e-08, -3.48787e-16, -3.48787e-16, -3.48787e-16, 1, -0.035, 0.015095, 2.08165e-12)
+target_position = Vector3(2.08165e-12, 0.082, 2.08165e-12)
 
-[node name="PitchPivot" type="Node3D" parent="TwistPivot"]
+[node name="RaycastLeft" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 3.48787e-16, -1, -4.37114e-08, -3.48787e-16, -3.48787e-16, -3.48787e-16, 1, -0.035, 0.015, 2.08165e-12)
+target_position = Vector3(2.08165e-12, -0.088, 2.08165e-12)

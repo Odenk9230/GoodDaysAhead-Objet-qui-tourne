@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ecbwkirhdnmk"
-path.s3tc="res://.godot/imported/Fichier 2.png-7bc745d5c371b2bf246497d805099d8d.s3tc.ctex"
+uid="uid://rmm87c2d234h"
+path.s3tc="res://.godot/imported/telly_rig_TellyUVDone.png-3544ec297b06b2d6adda3b7231c6f069.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "023b7dae5cc804232efd65a9395034c9"
+}
 
 [deps]
 
-source_file="res://asset/Buttons/Fichier 2.png"
-dest_files=["res://.godot/imported/Fichier 2.png-7bc745d5c371b2bf246497d805099d8d.s3tc.ctex"]
+source_file="res://asset/Platformer/telly_rig_TellyUVDone.png"
+dest_files=["res://.godot/imported/telly_rig_TellyUVDone.png-3544ec297b06b2d6adda3b7231c6f069.s3tc.ctex"]
 
 [params]
 

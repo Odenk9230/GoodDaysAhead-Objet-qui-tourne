@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceunvefi220p6"]
+
+[ext_resource type="PackedScene" uid="uid://bv0vdx06d4jfe" path="res://scene/telly_controller.tscn" id="1_n4q7m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bdacn"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_aqd56"]
+sky_material = SubResource("ProceduralSkyMaterial_bdacn")
+
+[sub_resource type="Environment" id="Environment_61y4e"]
+background_mode = 2
+sky = SubResource("Sky_aqd56")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4lvtj"]
+size = Vector3(4.34, 0.64, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dkwbp"]
+data = PackedVector3Array(-2.17, 0.32, 0.5, 2.17, 0.32, 0.5, -2.17, -0.32, 0.5, 2.17, 0.32, 0.5, 2.17, -0.32, 0.5, -2.17, -0.32, 0.5, 2.17, 0.32, -0.5, -2.17, 0.32, -0.5, 2.17, -0.32, -0.5, -2.17, 0.32, -0.5, -2.17, -0.32, -0.5, 2.17, -0.32, -0.5, 2.17, 0.32, 0.5, 2.17, 0.32, -0.5, 2.17, -0.32, 0.5, 2.17, 0.32, -0.5, 2.17, -0.32, -0.5, 2.17, -0.32, 0.5, -2.17, 0.32, -0.5, -2.17, 0.32, 0.5, -2.17, -0.32, -0.5, -2.17, 0.32, 0.5, -2.17, -0.32, 0.5, -2.17, -0.32, -0.5, 2.17, 0.32, 0.5, -2.17, 0.32, 0.5, 2.17, 0.32, -0.5, -2.17, 0.32, 0.5, -2.17, 0.32, -0.5, 2.17, 0.32, -0.5, -2.17, -0.32, 0.5, 2.17, -0.32, 0.5, -2.17, -0.32, -0.5, 2.17, -0.32, 0.5, 2.17, -0.32, -0.5, -2.17, -0.32, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g5sxx"]
+size = Vector3(0.59, 2.96, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c4u8d"]
+data = PackedVector3Array(-0.295, 1.48, 0.5, 0.295, 1.48, 0.5, -0.295, -1.48, 0.5, 0.295, 1.48, 0.5, 0.295, -1.48, 0.5, -0.295, -1.48, 0.5, 0.295, 1.48, -0.5, -0.295, 1.48, -0.5, 0.295, -1.48, -0.5, -0.295, 1.48, -0.5, -0.295, -1.48, -0.5, 0.295, -1.48, -0.5, 0.295, 1.48, 0.5, 0.295, 1.48, -0.5, 0.295, -1.48, 0.5, 0.295, 1.48, -0.5, 0.295, -1.48, -0.5, 0.295, -1.48, 0.5, -0.295, 1.48, -0.5, -0.295, 1.48, 0.5, -0.295, -1.48, -0.5, -0.295, 1.48, 0.5, -0.295, -1.48, 0.5, -0.295, -1.48, -0.5, 0.295, 1.48, 0.5, -0.295, 1.48, 0.5, 0.295, 1.48, -0.5, -0.295, 1.48, 0.5, -0.295, 1.48, -0.5, 0.295, 1.48, -0.5, -0.295, -1.48, 0.5, 0.295, -1.48, 0.5, -0.295, -1.48, -0.5, 0.295, -1.48, 0.5, 0.295, -1.48, -0.5, -0.295, -1.48, -0.5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_61y4e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.172569, 0)
+mesh = SubResource("BoxMesh_4lvtj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dkwbp")
+
+[node name="telly_controller" parent="." instance=ExtResource("1_n4q7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14955, 0)
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="telly_controller"]
+transform = Transform3D(1, 0, 0, 0, 0.999968, 0.00795854, 0, -0.00795854, 0.999968, 0, 0.369624, 2.83788)
+h_offset = 0.35
+v_offset = -0.17
+projection = 1
+fov = 43.9498
+size = 2.351
+near = 0.001
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52612, 0.790253, 0)
+mesh = SubResource("BoxMesh_g5sxx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_c4u8d")

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj0c5n1m1yvl2"
-path.s3tc="res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg-d5c041711a6c2dc0c686c6b46a79131d.s3tc.ctex"
+uid="uid://rmm87c2d234h"
+path.s3tc="res://.godot/imported/telly_rig_TellyUVDone.png-7135a6573b6b3da0a4100c8d36eeaded.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3d2dd018767f3763ce360a63476b3e3e"
+"md5": "023b7dae5cc804232efd65a9395034c9"
 }
 
 [deps]
 
-source_file="res://asset/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg"
-dest_files=["res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg-d5c041711a6c2dc0c686c6b46a79131d.s3tc.ctex"]
+source_file="res://telly_rig_TellyUVDone.png"
+dest_files=["res://.godot/imported/telly_rig_TellyUVDone.png-7135a6573b6b3da0a4100c8d36eeaded.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://asset/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

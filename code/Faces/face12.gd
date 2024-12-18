@@ -2,6 +2,9 @@ extends Face
 
 var canquit: bool = false
 @export var canexit: Timer 
+var isClicked: bool = false
+var time = 0.0
+var duration = 2.0
 func _ready() -> void:
 	pass 
 
@@ -15,15 +18,24 @@ func _face_off():
 
 
 func _process(delta: float) -> void:
+	if isClicked:
+		if time < duration:
+			time += delta
+			$exit/exit_button.position.y = lerp($exit/exit_button.position.y,-0.1,time/duration)
+		else : 
+			exit()
 	pass
 
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("clic_droit") and canquit:
-		get_tree().quit()
+		isClicked = true
 	pass # Replace with function body.
 
 
 func _on_can_exit_timeout() -> void:
 	canquit = true
 	pass # Replace with function body.
+
+func exit() -> void:
+	get_tree().quit()

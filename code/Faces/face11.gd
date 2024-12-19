@@ -50,7 +50,7 @@ func _on_area_area_entered(area: Area3D) -> void:
 
 
 func _on_area_area_exited(area: Area3D) -> void:
-	if area.is_in_group("control"):
+	if area.is_in_group("control") and isMoving:
 		led.mesh.surface_get_material(0).set_emission(notin)
 		timer.stop()
 	pass # Replace with function body.

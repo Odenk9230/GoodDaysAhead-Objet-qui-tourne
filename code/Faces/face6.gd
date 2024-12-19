@@ -34,13 +34,29 @@ func _process(delta: float) -> void:
 		
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("clic_droit") and active and !relache and !appui:
+	if Input.is_action_just_pressed("clic_droit") and active and !roue.tourne:
 		appui = true
 	if Input.is_action_just_released("clic_droit") and appui :
 		appui = false
 		relache = true
-		roue._faire_tourner(dose_appui*10)
+		roue._faire_tourner(- dose_appui*20)
 
 
 func _on_pointeur_area_entered(area: Area3D) -> void:
-	pointeur.appliquer_force(-roue.accelerotation * 0.5)
+	if area.is_in_group("case_roue") :
+		if !roue.tourne :
+			match area.numero_case :
+				1:
+					roue._faire_tourner(-randf_range(1,15))
+				2:
+					print("MUSIQUE")
+				3:
+					print("RETOUR")
+				4:
+					roue._faire_tourner(randf_range(1,15))
+				5:
+					print("SCReAMER")
+				6:
+					print("VALIDe")
+	else :
+		pointeur.appliquer_force(-roue.accelerotation * 0.5)

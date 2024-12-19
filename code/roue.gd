@@ -5,8 +5,17 @@ var accelerotation : float
 var intervalle_frein = 5
 var compteur = 0
 
+var tourne = false
+
+signal arret
+signal debut_tourne
+
+
 func _faire_tourner(puissance):
-	puissance += randf_range(5.0,15.0)
+	if puissance > 0.0 :
+		puissance += randf_range(0.0,20.0)
+	elif puissance < 0.0 :
+		puissance -= randf_range(0.0,20.0)
 	accelerotation += puissance
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,16 +26,31 @@ func _process(delta: float) -> void:
 			#if accelerotation < 5 :
 				#accelerotation = - accelerotation
 			#accelerotation *= 0.8
-	if abs(accelerotation) > 0.0 :
+	if abs(accelerotation) > 0.01 :
+		if !tourne :
+			tourne = true
+			_on_tourne()
+			debut_tourne.emit
 		rotate_x(accelerotation * delta)
-		accelerotation *= 0.98
+		accelerotation *= 0.99
+		print(accelerotation)
 	
+	elif tourne :
+		tourne = false
+		arret.emit
+		accelerotation = 0.0
+		_on_arret()
 
 func _on_pointeur_area_entered(area: Area3D) -> void:
-	if abs(accelerotation) > 0.0 :
-		accelerotation -= 0.1
-		if abs(accelerotation) > 1.0 :
-			print(accelerotation)
-		else :
-			accelerotation =- accelerotation
+	if !area.is_in_group("case_roue"):
+		if abs(accelerotation) > 0.01 :
+			accelerotation -= 0.1
+			if abs(accelerotation) < 1.5 :
+				accelerotation =- accelerotation
 		
+
+func _on_arret():
+	get_tree().call_group("case_roue","_arret_roue")
+	
+func _on_tourne():
+	get_tree().call_group("case_roue","_debut_roue")

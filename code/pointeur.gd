@@ -24,4 +24,4 @@ func _process(delta: float) -> void:
 	accelerotation *= 0.9
 	
 	if rotation_degrees.z != 180 :
-		rotation.z = lerp_angle(rotation.z, deg_to_rad(180.0), 0.05)
+		rotation.z = lerp_angle(rotation.z, deg_to_rad(180.0), 0.07)

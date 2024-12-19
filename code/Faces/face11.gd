@@ -1,11 +1,15 @@
 extends Face
 
 var isMoving:bool = false
-var maxPos: float = 0.352
-var minPos: float = -0.358
+var canClick:bool = true
+var maxPos: float = 0.377
+var minPos: float = -0.357
 var speed: float = 1
 @export var jauge: Area3D
 @export var timer: Timer
+@export var button: Area3D
+@export var animPlayer: AnimationPlayer
+@export var pushed: Area3D
 var time = 0.0
 var duration = 2.0
 var dir: float = 1
@@ -17,6 +21,7 @@ func _ready() -> void:
 func _face_on():
 	jauge.position.z = minPos
 	isMoving = true
+	canClick = false
 	pass
 func _face_off():
 	jauge.position.z =  minPos
@@ -26,14 +31,14 @@ func _face_off():
 func _process(delta: float) -> void:
 	if isMoving:
 		jauge.position.z += dir * speed * delta
-		if isMoving and jauge.position.z >= maxPos :
+		if jauge.position.z >= maxPos :
 			dir = -1
-		if isMoving and jauge.position.z <= minPos :
+		if jauge.position.z <= minPos :
 			dir = 1
 	pass
 
 func _on_area_area_entered(area: Area3D) -> void:
-	if area.is_in_group("control"):
+	if area.is_in_group("control") and isMoving:
 		timer.start()
 	pass # Replace with function body.
 
@@ -45,5 +50,4 @@ func _on_area_area_exited(area: Area3D) -> void:
 
 
 func _on_win_timer_timeout() -> void:
-	print("you win")
 	pass # Replace with function body.

@@ -7,6 +7,8 @@ var clique := false
 
 signal arret
 
+@onready var main = get_parent()
+
 @onready var dodecaedre = get_child(0)
 
 

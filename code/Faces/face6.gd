@@ -2,7 +2,7 @@ extends Face
 
 @onready var roue = $MeshRoue
 @onready var pointeur = $Pointeur
-@onready var led = $MeshRoue/led
+@onready var led = $led
 
 var relache = false
 var appui = false
@@ -17,6 +17,8 @@ func _ready() -> void:
 
 func _face_on():
 	active = true
+	if led.etat_actuel == 1:
+		led.passe_neutre()
 
 func _face_off():
 	active = false
@@ -57,14 +59,15 @@ func _on_pointeur_area_entered(area: Area3D) -> void:
 					else :
 						musique.play()
 				3:
-					print("RETOUR")
+					gestionnaire_dedocaedre.main._go_to_main_view()
+					led.passe_erreur()
 				4:
 					roue._faire_tourner(randf_range(1,15))
 				5:
 					print("SCReAMER")
 				6:
 					led.passe_valide()
-		elif area.numero_case == 6:
+		elif area.numero_case == 7:
 			led.passe_en_cours()
 	else :
 		pointeur.appliquer_force(-roue.accelerotation * 0.5)
@@ -72,6 +75,6 @@ func _on_pointeur_area_entered(area: Area3D) -> void:
 
 func _on_pointeur_area_exited(area: Area3D) -> void:
 	if area.is_in_group("case_roue") :
-		if area.numero_case == 6 and led.current_state == 2:
+		if area.numero_case == 7 and led.etat_actuel == 2:
 			led.passe_neutre()
 			

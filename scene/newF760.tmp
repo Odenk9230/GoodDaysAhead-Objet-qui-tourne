@@ -58,7 +58,7 @@ ambient_light_sky_contribution = 0.17
 tonemap_mode = 2
 volumetric_fog_density = 0.2921
 
-[node name="Main" type="Node3D" groups=["main"]]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_vy0se")
 
 [node name="MainPcam" type="Node3D" parent="."]
@@ -130,9 +130,6 @@ transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0.426, 0.7
 
 [node name="Face6" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("15_rworp")]
 transform = Transform3D(-0.530452, -0.847715, 0, 0.847715, -0.530452, 0, 0, 0, 1, -0.426, 0.738, 0)
-
-[node name="PhantomCamera3D" parent="GestionnaireDodecaedre/Dodecaedre/Face6" index="0"]
-tween_on_load = false
 
 [node name="Face7" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("16_lbv5i")]
 transform = Transform3D(-0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0, 1, -0.426, -0.738, 0)

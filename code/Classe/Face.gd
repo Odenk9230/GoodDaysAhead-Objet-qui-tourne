@@ -1,6 +1,7 @@
 extends Node3D
 class_name Face
 
+@onready var gestionnaire_dedocaedre = get_parent().get_parent()
 
 func _ready() -> void:
 	pass 

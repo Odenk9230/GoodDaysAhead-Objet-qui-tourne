@@ -39,11 +39,13 @@ func _on_arret_rotation():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		var pcam_active : PhantomCamera3D = pcam_host.get_active_pcam()	
-		if pcam_active.is_in_group("pcam_face") :
-			pcam_active.set_priority(0)
-			face_active._face_off()
-			face_active = null
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		_go_to_main_view()
 			
-		
+
+func _go_to_main_view():
+	var pcam_active : PhantomCamera3D = pcam_host.get_active_pcam()	
+	if pcam_active.is_in_group("pcam_face") :
+		pcam_active.set_priority(0)
+		face_active._face_off()
+		face_active = null
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

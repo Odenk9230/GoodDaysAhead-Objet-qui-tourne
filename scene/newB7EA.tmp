@@ -1,0 +1,156 @@
+[gd_scene load_steps=28 format=3 uid="uid://ctp3o5vt4j5cg"]
+
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0tvj2"]
+[ext_resource type="Script" path="res://code/camera.gd" id="1_m8qny"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_vy0se"]
+[ext_resource type="PackedScene" uid="uid://7bd2ygnlblpl" path="res://asset/Dodecaedre.glb" id="1_xy4bk"]
+[ext_resource type="Script" path="res://code/dodecaedre.gd" id="2_in6wi"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_oeh3x"]
+[ext_resource type="Shader" path="res://asset/shader/pixelart_stylizer.gdshader" id="2_up0w7"]
+[ext_resource type="Script" path="res://code/test_viseur.gd" id="3_ym0gy"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_00iq3"]
+[ext_resource type="PackedScene" uid="uid://428ue6p7g7d6" path="res://scene/faces/face1.tscn" id="10_fg5dp"]
+[ext_resource type="PackedScene" uid="uid://r2pf8fwlee5v" path="res://scene/faces/face_fils.tscn" id="11_gsagp"]
+[ext_resource type="PackedScene" uid="uid://6w1gaviy3yar" path="res://scene/faces/face3.tscn" id="12_8sd3q"]
+[ext_resource type="PackedScene" uid="uid://movswt56il5g" path="res://scene/faces/face4.tscn" id="13_woayb"]
+[ext_resource type="PackedScene" uid="uid://bpoa5yekv0ejk" path="res://scene/faces/face5.tscn" id="14_l6738"]
+[ext_resource type="PackedScene" uid="uid://chqprqchtbh77" path="res://scene/faces/face_roue.tscn" id="15_rworp"]
+[ext_resource type="PackedScene" uid="uid://cdm1jutx8vdna" path="res://scene/faces/face7.tscn" id="16_lbv5i"]
+[ext_resource type="PackedScene" uid="uid://d3smyyhrsmwcp" path="res://scene/faces/face8.tscn" id="17_4l7xk"]
+[ext_resource type="PackedScene" uid="uid://gp2vcn56e5ia" path="res://scene/faces/face9.tscn" id="18_56tr3"]
+[ext_resource type="PackedScene" uid="uid://d1hubthoxyxpe" path="res://scene/faces/face10.tscn" id="19_qhynv"]
+[ext_resource type="PackedScene" uid="uid://dwnt4bt75lt0d" path="res://scene/faces/face11.tscn" id="20_1wdt6"]
+[ext_resource type="PackedScene" uid="uid://bopslmagdi4lr" path="res://scene/faces/face12.tscn" id="21_rc3gx"]
+
+[sub_resource type="Resource" id="Resource_u53yf"]
+script = ExtResource("2_oeh3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avqx0"]
+size = Vector3(0.1, 0.5, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qjins"]
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8xjd"]
+render_priority = 0
+shader = ExtResource("2_up0w7")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 1.0
+shader_parameter/highlight_strength = 0.81
+shader_parameter/highlight_color = Color(0.475998, 0.522337, 0.45867, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rl06d"]
+diffuse_mode = 3
+albedo_color = Color(0.884265, 0.623755, 0.395094, 1)
+roughness = 0.01
+
+[sub_resource type="Environment" id="Environment_clmqr"]
+background_mode = 1
+background_color = Color(0.696921, 0.116331, 3.85046e-07, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.271673, 0.467825, 0.532949, 1)
+ambient_light_sky_contribution = 0.17
+tonemap_mode = 2
+volumetric_fog_density = 0.2921
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_vy0se")
+
+[node name="MainPcam" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.41287, 0, 0)
+script = ExtResource("1_0tvj2")
+priority = 5
+tween_resource = SubResource("Resource_u53yf")
+tween_on_load = false
+
+[node name="AreaViseur" type="Area3D" parent="MainPcam"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.75099e-07, 0, -4.00581)
+script = ExtResource("3_ym0gy")
+
+[node name="HitboxViseur" type="CollisionShape3D" parent="MainPcam/AreaViseur"]
+shape = SubResource("BoxShape3D_avqx0")
+disabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.41287, 0, 0)
+current = true
+size = 4.7
+near = 0.001
+script = ExtResource("1_m8qny")
+
+[node name="Postprocess" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 7.35393e-08, 0, -0.812382)
+mesh = SubResource("PlaneMesh_qjins")
+surface_material_override/0 = SubResource("ShaderMaterial_l8xjd")
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_00iq3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.82066, -0.454635, 0.346157, -0.253404, 0.253404, 0.93358, -0.512156, -0.85387, 0.0927524, -2.17954, -3.21409, -1.78814e-07)
+light_color = Color(0.391295, 0.477168, 0.652098, 1)
+light_energy = 4.265
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.82066, -0.454635, 0.346157, -0.253404, 0.253404, 0.93358, -0.512155, -0.85387, 0.0927524, 0, 2.588, 0)
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.032
+
+[node name="GestionnaireDodecaedre" type="Node3D" parent="."]
+script = ExtResource("2_in6wi")
+
+[node name="Dodecaedre" parent="GestionnaireDodecaedre" instance=ExtResource("1_xy4bk")]
+
+[node name="Solid" parent="GestionnaireDodecaedre/Dodecaedre" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_rl06d")
+
+[node name="Face1" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("10_fg5dp")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.738048, 0, 0.426112)
+
+[node name="Face2" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("11_gsagp")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.738048, 0, -0.426112)
+
+[node name="Face3" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("12_8sd3q")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.738, 0, 0.426)
+
+[node name="Face4" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("13_woayb")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -0.738, 0, -0.426)
+
+[node name="Face5" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("14_l6738")]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0.426, 0.738, 0)
+
+[node name="Face6" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("15_rworp")]
+transform = Transform3D(-0.530452, -0.847715, 0, 0.847715, -0.530452, 0, 0, 0, 1, -0.426, 0.738, 0)
+
+[node name="Face7" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("16_lbv5i")]
+transform = Transform3D(-0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0, 1, -0.426, -0.738, 0)
+
+[node name="Face8" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("17_4l7xk")]
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0.426, -0.738, 0)
+
+[node name="Face9" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("18_56tr3")]
+transform = Transform3D(-3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 0, -0.866025, 0.5, -4.37114e-08, 0, 0.426, -0.738)
+
+[node name="Face10" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("19_qhynv")]
+transform = Transform3D(-3.78552e-08, -2.18557e-08, 1, -0.5, 0.866025, 0, -0.866025, -0.5, -4.37114e-08, 0, -0.426, -0.738)
+
+[node name="Face11" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("20_1wdt6")]
+transform = Transform3D(3.78552e-08, 2.18557e-08, 1, 0.5, -0.866025, 0, 0.866025, 0.5, -4.37114e-08, 0.0123968, 0.426, 0.731058)
+
+[node name="Face12" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("21_rc3gx")]
+transform = Transform3D(-0.0660997, 0, -0.997813, -0.577191, 0.815714, 0.0382358, 0.81393, 0.578456, -0.0539185, 0, -0.426, 0.674149)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_clmqr")
+
+[editable path="GestionnaireDodecaedre/Dodecaedre"]
+[editable path="GestionnaireDodecaedre/Dodecaedre/Face6"]

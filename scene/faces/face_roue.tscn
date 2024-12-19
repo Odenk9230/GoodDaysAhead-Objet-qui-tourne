@@ -141,7 +141,7 @@ mesh = SubResource("BoxMesh_44hpn")
 skeleton = NodePath("../..")
 
 [node name="Pointeur" type="Area3D" parent="."]
-transform = Transform3D(-3.48846e-05, -5.26743e-12, 1, 1.50996e-07, -1, -6.50521e-19, 1, 1.50996e-07, 3.48846e-05, -0.019436, 0.333105, 0)
+transform = Transform3D(-3.48846e-05, -4.40769e-12, 1, -0.99377, -0.111452, -3.46673e-05, 0.111452, -0.99377, 3.88795e-06, -0.019436, 0.333105, 0)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("5_hk06d")

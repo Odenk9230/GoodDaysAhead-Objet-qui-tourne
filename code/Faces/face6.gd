@@ -8,6 +8,8 @@ var relache = false
 var appui = false
 var dose_appui : float = 0.0
 
+@onready var anim = $AnimationPlayer
+
 @onready var musique = $MeshRoue/Musique/Musique
 
 var active = false
@@ -27,6 +29,7 @@ func _process(delta: float) -> void:
 	if appui :
 		if roue.position.x > -0.1 :
 			roue.position.x -= delta*0.03
+			roue.rotate_x(delta*0.1)
 			dose_appui += delta
 	
 	if relache :
@@ -52,7 +55,7 @@ func _on_pointeur_area_entered(area: Area3D) -> void:
 		if !roue.tourne :
 			match area.numero_case :
 				1:
-					roue._faire_tourner(-randf_range(1,15))
+					roue._faire_tourner(randf_range(1,15))
 				2:
 					if musique.playing :
 						musique.stop()
@@ -62,15 +65,15 @@ func _on_pointeur_area_entered(area: Area3D) -> void:
 					gestionnaire_dedocaedre.main._go_to_main_view()
 					led.passe_erreur()
 				4:
-					roue._faire_tourner(randf_range(1,15))
+					roue._faire_tourner(-randf_range(1,15))
 				5:
-					print("SCReAMER")
+					anim.play("!")
 				6:
 					led.passe_valide()
 		elif area.numero_case == 7:
 			led.passe_en_cours()
 	else :
-		pointeur.appliquer_force(-roue.accelerotation * 0.5)
+		pointeur.appliquer_force(-roue.accelerotation * 1.0)
 
 
 func _on_pointeur_area_exited(area: Area3D) -> void:

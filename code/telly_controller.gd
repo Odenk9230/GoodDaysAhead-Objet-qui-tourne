@@ -13,7 +13,7 @@ var direction = 1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var fall_gravity: float = 5.0
-
+var canJump: bool = false
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -27,15 +27,7 @@ func _physics_process(delta):
 			Jump()
 			Jump_Buffer = false
 	
-	#if is_on_wall_only():
-	#	Jump_Available = true
-	#	if velocity.y>0:
-	#			Jump_Available = false
-	#else:
-	#	Jump_Available = false
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump"):
+	if canJump:
 		if Jump_Available:
 			Jump()
 		else:
@@ -68,6 +60,13 @@ func _physics_process(delta):
 func Jump()->void:
 	velocity.y = JUMP_VELOCITY
 	Jump_Available = false
+	canJump = false
 	
 func on_jump_buffer_timeout()->void:
 	Jump_Buffer = false
+
+
+func _on_area_3d_input_event(camera:Node, event:InputEvent, event_position:Vector3, normal:Vector3, shape_idx:int) -> void:
+	if Input.is_action_just_pressed("clic_droit"):
+		canJump = true
+	pass # Replace with function body.

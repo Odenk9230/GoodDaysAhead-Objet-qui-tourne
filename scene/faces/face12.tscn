@@ -1,17 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bopslmagdi4lr"]
+[gd_scene load_steps=8 format=3 uid="uid://bopslmagdi4lr"]
 
 [ext_resource type="Script" path="res://code/Faces/face12.gd" id="1_dx5o6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_evrxu"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_coinf"]
+[ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="3_sjmmo"]
 [ext_resource type="PackedScene" uid="uid://b8ra50aw0q6lx" path="res://asset/glb/exit_button.glb" id="4_irp5s"]
 [ext_resource type="AudioStream" uid="uid://l2ic5s1c5wmj" path="res://asset/son/shutdown.ogg" id="5_307or"]
 [ext_resource type="AudioStream" uid="uid://gp57pyn6eys3" path="res://asset/son/clic_seul.ogg" id="5_wpj07"]
-
-[sub_resource type="Resource" id="Resource_ru5nn"]
-script = ExtResource("3_coinf")
-duration = 1.0
-transition = 0
-ease = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bly8"]
 size = Vector3(2.58813, 1, 2.39453)
@@ -23,7 +17,7 @@ canexit = NodePath("can_exit")
 [node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 script = ExtResource("2_evrxu")
-tween_resource = SubResource("Resource_ru5nn")
+tween_resource = ExtResource("3_sjmmo")
 
 [node name="exit" type="Area3D" parent="."]
 transform = Transform3D(-3.69457e-16, 0.225002, -9.83508e-09, 9.83508e-09, -9.83513e-09, -0.225, -0.225, 0, -9.83508e-09, 0, 0, 0)

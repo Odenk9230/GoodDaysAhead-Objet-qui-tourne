@@ -5,4 +5,6 @@ func _on_body_entered(body):
 		Engine.time_scale = 0.5
 		await get_tree().create_timer(0.5).timeout
 		Engine.time_scale = 1
-		get_tree().reload_current_scene()
+		$"../../telly_controller".position = Vector3(-0.345, 0.141, -18.96)
+		$"../../telly_controller".rotation = Vector3(0.0, 0.0, 0.0)
+		$"../../../..".gestionnaire_dedocaedre.main._go_to_main_view()

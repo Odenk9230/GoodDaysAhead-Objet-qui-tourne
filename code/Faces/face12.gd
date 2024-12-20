@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("clic_droit") and canquit:
+		gestionnaire_dedocaedre.main.musique.stop()
 		isClicked = true
 		bouton_son.play()
 	pass # Replace with function body.

@@ -1,20 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3smyyhrsmwcp"]
+[gd_scene load_steps=4 format=3 uid="uid://d3smyyhrsmwcp"]
 
 [ext_resource type="Script" path="res://code/Faces/face8.gd" id="1_tiamb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_pdlwg"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_6b11u"]
-
-[sub_resource type="Resource" id="Resource_ck55n"]
-script = ExtResource("3_6b11u")
-duration = 1.0
-transition = 0
-ease = 2
+[ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="3_dc336"]
 
 [node name="Face8" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_tiamb")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 script = ExtResource("2_pdlwg")
-tween_resource = SubResource("Resource_ck55n")
+tween_resource = ExtResource("3_dc336")

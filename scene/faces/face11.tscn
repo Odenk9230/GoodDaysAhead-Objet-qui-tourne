@@ -1,10 +1,10 @@
-[gd_scene load_steps=33 format=4 uid="uid://dwnt4bt75lt0d"]
+[gd_scene load_steps=32 format=4 uid="uid://dwnt4bt75lt0d"]
 
 [ext_resource type="Script" path="res://code/Faces/face11.gd" id="1_5npai"]
 [ext_resource type="AudioStream" uid="uid://dv1xveh408o1i" path="res://asset/son/light.ogg" id="2_cv60r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_uh15n"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_stbqv"]
 [ext_resource type="Texture2D" uid="uid://0yts6da2lwm6" path="res://asset/Nuclear_Button/Nuclear_button_T_Plan de travail 1.png" id="4_hkgxm"]
+[ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="4_orqbs"]
 [ext_resource type="Script" path="res://scene/faces/fish.gd" id="4_xxj1o"]
 [ext_resource type="PackedScene" uid="uid://bfls30dffhso0" path="res://scene/prefab/telly_rig.tscn" id="5_aqv4s"]
 [ext_resource type="Texture2D" uid="uid://do8hxvkj3bpt0" path="res://asset/Nuclear_Button/Hit_effect.png" id="5_bi0tn"]
@@ -87,12 +87,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3ci02")
-
-[sub_resource type="Resource" id="Resource_vrfeb"]
-script = ExtResource("3_stbqv")
-duration = 1.0
-transition = 0
-ease = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkuss"]
 resource_name = "Material"
@@ -280,7 +274,7 @@ stream = ExtResource("2_cv60r")
 [node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 script = ExtResource("2_uh15n")
-tween_resource = SubResource("Resource_vrfeb")
+tween_resource = ExtResource("4_orqbs")
 
 [node name="Camera3D" type="Camera3D" parent="PhantomCamera3D"]
 

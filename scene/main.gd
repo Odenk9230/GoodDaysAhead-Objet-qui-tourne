@@ -10,6 +10,10 @@ extends Node3D
 
 @onready var face_active : Face
 
+@onready var musique = $AudioStreamPlayer3D
+
+@onready var woosh = $AudioStreamPlayer
+
 var distance_max : float = 3.5
 
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +39,7 @@ func _on_arret_rotation():
 		pcam_proche.set_priority(10)
 		face_active = pcam_proche.get_parent()
 		face_active._face_on()
+		woosh.play()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -49,3 +54,4 @@ func _go_to_main_view():
 		face_active._face_off()
 		face_active = null
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		woosh.play()

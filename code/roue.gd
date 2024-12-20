@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 			#if accelerotation < 5 :
 				#accelerotation = - accelerotation
 			#accelerotation *= 0.8
-	if abs(accelerotation) > 0.01 :
+	if abs(accelerotation) > 0.03 :
 		if !tourne :
 			tourne = true
 			_on_tourne()

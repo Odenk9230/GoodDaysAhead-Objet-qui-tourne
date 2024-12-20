@@ -1,12 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://ctp3o5vt4j5cg"]
+[gd_scene load_steps=29 format=3 uid="uid://ctp3o5vt4j5cg"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_0tvj2"]
 [ext_resource type="Script" path="res://code/camera.gd" id="1_m8qny"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_vy0se"]
 [ext_resource type="PackedScene" uid="uid://7bd2ygnlblpl" path="res://asset/Dodecaedre.glb" id="1_xy4bk"]
 [ext_resource type="Script" path="res://code/dodecaedre.gd" id="2_in6wi"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_oeh3x"]
 [ext_resource type="Shader" path="res://asset/shader/pixelart_stylizer.gdshader" id="2_up0w7"]
+[ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="3_lmcp6"]
 [ext_resource type="Script" path="res://code/test_viseur.gd" id="3_ym0gy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_00iq3"]
 [ext_resource type="PackedScene" uid="uid://428ue6p7g7d6" path="res://scene/faces/face1.tscn" id="10_fg5dp"]
@@ -21,12 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://d1hubthoxyxpe" path="res://scene/faces/face10.tscn" id="19_qhynv"]
 [ext_resource type="PackedScene" uid="uid://dwnt4bt75lt0d" path="res://scene/faces/face11.tscn" id="20_1wdt6"]
 [ext_resource type="PackedScene" uid="uid://bopslmagdi4lr" path="res://scene/faces/face12.tscn" id="21_rc3gx"]
-
-[sub_resource type="Resource" id="Resource_u53yf"]
-script = ExtResource("2_oeh3x")
-duration = 1.0
-transition = 0
-ease = 2
+[ext_resource type="AudioStream" uid="uid://20auq4utvyu" path="res://asset/son/son_woosh.wav" id="22_4ifia"]
+[ext_resource type="AudioStream" uid="uid://b5wv56qy43yv1" path="res://asset/son/theme.ogg" id="22_m7xva"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_avqx0"]
 size = Vector3(0.1, 0.5, 0.5)
@@ -65,7 +61,7 @@ script = ExtResource("1_vy0se")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.41287, 0, 0)
 script = ExtResource("1_0tvj2")
 priority = 5
-tween_resource = SubResource("Resource_u53yf")
+tween_resource = ExtResource("3_lmcp6")
 tween_on_load = false
 
 [node name="AreaViseur" type="Area3D" parent="MainPcam"]
@@ -108,6 +104,7 @@ directional_shadow_split_1 = 0.032
 script = ExtResource("2_in6wi")
 
 [node name="Dodecaedre" parent="GestionnaireDodecaedre" instance=ExtResource("1_xy4bk")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="Solid" parent="GestionnaireDodecaedre/Dodecaedre" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -134,6 +131,9 @@ transform = Transform3D(-0.530452, -0.847715, 0, 0.847715, -0.530452, 0, 0, 0, 1
 [node name="PhantomCamera3D" parent="GestionnaireDodecaedre/Dodecaedre/Face6" index="0"]
 tween_on_load = false
 
+[node name="Sprite3D" parent="GestionnaireDodecaedre/Dodecaedre/Face6" index="5"]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.00753379, 0, -0.012322)
+
 [node name="Face7" parent="GestionnaireDodecaedre/Dodecaedre" instance=ExtResource("16_lbv5i")]
 transform = Transform3D(-0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0, 1, -0.426, -0.738, 0)
 
@@ -154,6 +154,16 @@ transform = Transform3D(-0.0660997, 0, -0.997813, -0.577191, 0.815714, 0.0382358
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_clmqr")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("22_m7xva")
+volume_db = -5.0
+max_db = 0.0
+autoplay = true
+parameters/looping = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_4ifia")
 
 [editable path="GestionnaireDodecaedre/Dodecaedre"]
 [editable path="GestionnaireDodecaedre/Dodecaedre/Face6"]

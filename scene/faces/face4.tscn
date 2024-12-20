@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://code/Faces/face4.gd" id="1_hjk7m"]
 [ext_resource type="PackedScene" uid="uid://178b0v14nvj1" path="res://scene/Nuclear_button_1.tscn" id="2_bkud7"]
+[ext_resource type="AudioStream" uid="uid://dv1xveh408o1i" path="res://asset/son/light.ogg" id="2_h5a10"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_py1hc"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_i0y70"]
 [ext_resource type="SpriteFrames" uid="uid://r1t7gu0f0feb" path="res://asset/animations/Punchout/anim_punchout.tres" id="4_q7ek3"]
 [ext_resource type="Texture2D" uid="uid://bkgrv5s1un0lx" path="res://asset/animations/Punchout/retro_Screen.png" id="4_w46qv"]
+[ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="5_pi3hv"]
 [ext_resource type="PackedScene" uid="uid://bv4gqleuvnv3" path="res://asset/retro_screen/retro_screen.glb" id="8_vi1c2"]
 [ext_resource type="AudioStream" uid="uid://cq4wqgywlkuw7" path="res://asset/son/coup_de_poing.ogg" id="9_hxpo2"]
 [ext_resource type="FontFile" uid="uid://btxgf8mutov0o" path="res://Fonts/Digital Display.ttf" id="9_ss6j5"]
@@ -87,12 +88,6 @@ shadow_mesh = SubResource("ArrayMesh_l6u8i")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejhsl"]
 size = Vector3(1.93756, 1.13617, 2.1142)
 
-[sub_resource type="Resource" id="Resource_vsan1"]
-script = ExtResource("3_i0y70")
-duration = 1.0
-transition = 0
-ease = 2
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nuxti"]
 random_pitch = 1.1
 random_volume_offset_db = 1.0
@@ -118,6 +113,7 @@ mesh = SubResource("ArrayMesh_onf1q")
 skeleton = NodePath("")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="led"]
+stream = ExtResource("2_h5a10")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(-6.55671e-09, 0.15, 6.55671e-09, 0, -6.55671e-09, 0.15, 0.15, 6.55671e-09, 2.86603e-16, -0.0559314, -0.256991, 0.164159)
@@ -132,7 +128,7 @@ shape = SubResource("BoxShape3D_ejhsl")
 [node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 script = ExtResource("2_py1hc")
-tween_resource = SubResource("Resource_vsan1")
+tween_resource = ExtResource("5_pi3hv")
 
 [node name="retro_screen" type="Sprite3D" parent="."]
 transform = Transform3D(-1.27856e-07, 0, -2.925, 0, 2.925, 0, 2.925, 0, -1.27856e-07, 0.0161033, 0.0603053, -0.00303826)

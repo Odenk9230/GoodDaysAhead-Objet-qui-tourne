@@ -12,10 +12,15 @@ signal arret
 @onready var dodecaedre = get_child(0)
 
 
+
+
 func _physics_process(delta: float) -> void:
 	
 	dodecaedre.rotate_y(accelerotation.x * delta)
 	dodecaedre.rotate_z(-accelerotation.y * delta)
+	
+
+	
 	accelerotation *= 0.8
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

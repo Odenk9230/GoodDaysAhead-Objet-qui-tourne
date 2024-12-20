@@ -4,7 +4,12 @@ var canquit: bool = false
 @export var canexit: Timer 
 var isClicked: bool = false
 var time = 0.0
-var duration = 2.0
+var duration = 3.0
+@onready var son = $AudioStreamPlayer3D
+@onready var bouton_son = $boutonson
+
+@onready var timer2 = $Timer
+
 func _ready() -> void:
 	pass 
 
@@ -30,6 +35,7 @@ func _process(delta: float) -> void:
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("clic_droit") and canquit:
 		isClicked = true
+		bouton_son.play()
 	pass # Replace with function body.
 
 
@@ -39,3 +45,11 @@ func _on_can_exit_timeout() -> void:
 
 func exit() -> void:
 	get_tree().quit()
+
+
+func _on_boutonson_finished() -> void:
+	timer2.start()
+
+
+func _on_timer_timeout() -> void:
+	son.play()

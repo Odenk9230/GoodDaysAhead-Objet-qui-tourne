@@ -2,6 +2,8 @@ extends RichTextLabel
 
 var ratio=0
 @export var speed=0.01
+var do_once = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,6 +16,8 @@ func _process(delta: float) -> void:
 	visible_ratio=ratio
 	if !$"../AudioStreamPlayer".playing and visible_ratio<1:
 		$"../AudioStreamPlayer".play()
-	if visible_ratio>0.99:
+	if visible_ratio>0.99 and do_once:
 		$"../CanvasLayer".visible = true
+		do_once = false
+		$"../AudioStreamPlayer2".play()
 		

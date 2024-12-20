@@ -5,6 +5,8 @@ var accelerotation : float
 var intervalle_frein = 5
 var compteur = 0
 
+@onready var son = $AudioStreamPlayer3D
+
 var tourne = false
 
 signal arret
@@ -31,8 +33,11 @@ func _process(delta: float) -> void:
 			tourne = true
 			_on_tourne()
 			debut_tourne.emit
+			son.play()
+			son.volume_db = 0
 		rotate_x(accelerotation * delta)
 		accelerotation *= 0.99
+		son.volume_db -= 0.08
 		print(accelerotation)
 	
 	elif tourne :
@@ -40,6 +45,7 @@ func _process(delta: float) -> void:
 		arret.emit
 		accelerotation = 0.0
 		_on_arret()
+		son.stop()
 
 func _on_pointeur_area_entered(area: Area3D) -> void:
 	if !area.is_in_group("case_roue"):

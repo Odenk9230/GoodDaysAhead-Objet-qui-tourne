@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://dwnt4bt75lt0d"]
+[gd_scene load_steps=33 format=4 uid="uid://dwnt4bt75lt0d"]
 
 [ext_resource type="Script" path="res://code/Faces/face11.gd" id="1_5npai"]
+[ext_resource type="AudioStream" uid="uid://dv1xveh408o1i" path="res://asset/son/light.ogg" id="2_cv60r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_uh15n"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_stbqv"]
 [ext_resource type="Texture2D" uid="uid://0yts6da2lwm6" path="res://asset/Nuclear_Button/Nuclear_button_T_Plan de travail 1.png" id="4_hkgxm"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bfls30dffhso0" path="res://scene/prefab/telly_rig.tscn" id="5_aqv4s"]
 [ext_resource type="Texture2D" uid="uid://do8hxvkj3bpt0" path="res://asset/Nuclear_Button/Hit_effect.png" id="5_bi0tn"]
 [ext_resource type="AnimationLibrary" uid="uid://csa54qiok4x1d" path="res://code/animation/face11.tres" id="6_s1uvu"]
+[ext_resource type="AudioStream" uid="uid://cpbebivqs4eas" path="res://asset/son/clic_bouton.ogg" id="8_iel18"]
+[ext_resource type="AudioStream" uid="uid://dwljwc0knrn2m" path="res://asset/son/loop_note_ catch.ogg" id="10_0w186"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avgay"]
 resource_name = "led"
@@ -271,6 +274,9 @@ transform = Transform3D(-2.62268e-09, 0.06, 0, -0.06, -2.62268e-09, 0, 0, 0, 0.0
 mesh = SubResource("ArrayMesh_v3xlv")
 skeleton = NodePath("")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="led"]
+stream = ExtResource("2_cv60r")
+
 [node name="PhantomCamera3D" type="Node3D" parent="." groups=["pcam_face"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 script = ExtResource("2_uh15n")
@@ -304,8 +310,8 @@ libraries = {
 "": ExtResource("6_s1uvu")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PhantomCamera3D/Nuclear_button/Area3D/Cylinder_001"]
-volume_db = 5.0
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PhantomCamera3D/Nuclear_button/Area3D/Cylinder_001"]
+stream = ExtResource("8_iel18")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhantomCamera3D/Nuclear_button/Area3D"]
 transform = Transform3D(1, 1.06581e-14, -3.52789e-19, -1.06581e-14, 1, 0, 0, 0, 1, -0.128937, 0.971576, -0.0370216)
@@ -346,6 +352,10 @@ transform = Transform3D(-1.5299e-09, -0.035, 0, 0.035, -1.5299e-09, 0, 0, 0, 0.0
 mesh = SubResource("CylinderMesh_pobu5")
 
 [node name="WinTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_0w186")
 
 [connection signal="input_event" from="PhantomCamera3D/Nuclear_button/Area3D" to="main jauge/Area3D" method="_on_area_3d_input_event"]
 [connection signal="animation_finished" from="PhantomCamera3D/Nuclear_button/Area3D/Cylinder_001/AnimationPlayer" to="main jauge/Area3D" method="_on_animation_player_animation_finished"]

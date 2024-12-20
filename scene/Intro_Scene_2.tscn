@@ -1,14 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfhc31ky864t2"]
+[gd_scene load_steps=16 format=3 uid="uid://bfhc31ky864t2"]
 
 [ext_resource type="Texture2D" uid="uid://b8slwj03l8jyv" path="res://asset/chat_captcha.png" id="1_7k5kx"]
+[ext_resource type="Script" path="res://scene/intro_scene_2.gd" id="1_8gnwl"]
 [ext_resource type="FontFile" uid="uid://3ncgc61je1xp" path="res://Fonts/F25_Bank_Printer.ttf" id="1_hi5ns"]
 [ext_resource type="Script" path="res://scene/Intro_scene_2_script.gd" id="2_ffn4k"]
 [ext_resource type="Texture2D" uid="uid://bt6l0nphsvw5i" path="res://asset/chat_captcha_normal.png" id="4_1vref"]
 [ext_resource type="Script" path="res://scene/button_2_script_intro_scene_2.gd" id="4_gcw4x"]
 [ext_resource type="Texture2D" uid="uid://snyf7g2ygild" path="res://asset/Buttons/Fichier 4.png" id="5_xh1k3"]
+[ext_resource type="AudioStream" uid="uid://drnwu7ehr42w4" path="res://asset/son/cloche_texte.ogg" id="5_yyrvt"]
 [ext_resource type="Texture2D" uid="uid://dcfqs7o5goef1" path="res://asset/Buttons/Fichier 3.png" id="6_fa265"]
-[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="6_ijxuf"]
+[ext_resource type="AudioStream" uid="uid://dm8i2mg47ybqm" path="res://asset/son/texte_random.tres" id="6_sm2u7"]
 [ext_resource type="Script" path="res://scene/button_1_script_intro_scene_2.gd" id="8_5aov4"]
+[ext_resource type="AudioStream" uid="uid://gp57pyn6eys3" path="res://asset/son/clic_seul.ogg" id="12_ytrrm"]
 
 [sub_resource type="Animation" id="Animation_2jkp7"]
 resource_name = "writing"
@@ -22,6 +25,7 @@ _data = {
 background_mode = 1
 
 [node name="IntroScene2" type="Node3D"]
+script = ExtResource("1_8gnwl")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -69,8 +73,11 @@ position = Vector2(206, 22)
 scale = Vector2(0.0268486, 0.0259946)
 texture = ExtResource("4_1vref")
 
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yyrvt")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_ijxuf")
+stream = ExtResource("6_sm2u7")
 
 [node name="Button_2" type="CanvasLayer" parent="."]
 script = ExtResource("4_gcw4x")
@@ -162,6 +169,11 @@ position = Vector2(49.225, 115)
 scale = Vector2(0.327586, 0.327586)
 texture = ExtResource("6_fa265")
 
+[node name="AudioStreamClic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ytrrm")
+
 [connection signal="timeout" from="Timer" to="Button_1" method="_on_timer_timeout"]
+[connection signal="pressed" from="Button_2/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button_2/Control/Button" to="Button_2" method="_on_button_pressed"]
+[connection signal="pressed" from="Button_1/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button_1/Control/Button" to="Button_1" method="_on_button_pressed"]

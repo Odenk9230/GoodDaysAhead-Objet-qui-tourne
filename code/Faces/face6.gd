@@ -3,6 +3,8 @@ extends Face
 @onready var roue = $MeshRoue
 @onready var pointeur = $Pointeur
 @onready var led = $led
+@onready var son = $ClicRoue
+	
 
 var relache = false
 var appui = false
@@ -74,6 +76,7 @@ func _on_pointeur_area_entered(area: Area3D) -> void:
 			led.passe_en_cours()
 	else :
 		pointeur.appliquer_force(-roue.accelerotation * 1.0)
+		son.play()
 
 
 func _on_pointeur_area_exited(area: Area3D) -> void:

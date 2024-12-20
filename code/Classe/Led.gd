@@ -8,6 +8,8 @@ class_name Led
 @export var ongoing: Color
 @export var succeed: Color = Color("488a1f")
 
+@onready var son = $AudioStreamPlayer3D
+
 enum ETATS {NOTHING, ERROR, ONGOING, SUCCEED}
 
 var compteur_validation = 0.0
@@ -22,19 +24,23 @@ func passe_neutre():
 	if not etat_actuel == ETATS.SUCCEED :
 		etat_actuel = ETATS.NOTHING
 		modele.mesh.surface_get_material(0).set_emission(nothing)
+		son.play()
 
 func passe_erreur():
 	etat_actuel = ETATS.ERROR
 	modele.mesh.surface_get_material(0).set_emission(error)
+	son.play()
 
 func passe_en_cours():
 	if not etat_actuel == ETATS.SUCCEED :
 		etat_actuel = ETATS.ONGOING
 		modele.mesh.surface_get_material(0).set_emission(ongoing)
+		son.play()
 
 func passe_valide():
 	etat_actuel = ETATS.SUCCEED
 	modele.mesh.surface_get_material(0).set_emission(succeed)
+	son.play()
 
 #func _process(delta: float) -> void:
 	#if etat_actuel == ETATS.ONGOING :

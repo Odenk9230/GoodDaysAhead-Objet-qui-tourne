@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bopslmagdi4lr"]
+[gd_scene load_steps=9 format=3 uid="uid://bopslmagdi4lr"]
 
 [ext_resource type="Script" path="res://code/Faces/face12.gd" id="1_dx5o6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_evrxu"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_coinf"]
 [ext_resource type="PackedScene" uid="uid://b8ra50aw0q6lx" path="res://asset/glb/exit_button.glb" id="4_irp5s"]
+[ext_resource type="AudioStream" uid="uid://l2ic5s1c5wmj" path="res://asset/son/shutdown.ogg" id="5_307or"]
+[ext_resource type="AudioStream" uid="uid://gp57pyn6eys3" path="res://asset/son/clic_seul.ogg" id="5_wpj07"]
 
 [sub_resource type="Resource" id="Resource_ru5nn"]
 script = ExtResource("3_coinf")
@@ -37,6 +39,18 @@ transform = Transform3D(1, 4.28408e-08, 7.20844e-07, -5.86733e-07, 0.999992, 7.4
 wait_time = 2.0
 one_shot = true
 
+[node name="boutonson" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_wpj07")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_307or")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="input_event" from="exit" to="." method="_on_area_3d_input_event"]
 [connection signal="mouse_entered" from="exit" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="timeout" from="can_exit" to="." method="_on_can_exit_timeout"]
+[connection signal="finished" from="boutonson" to="." method="_on_boutonson_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj0c5n1m1yvl2"
-path.s3tc="res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg-d5c041711a6c2dc0c686c6b46a79131d.s3tc.ctex"
+uid="uid://c0fb0bmmb5opo"
+path.s3tc="res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg-8ef7f5862c5b681a769151f2d74ef075.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://asset/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg"
-dest_files=["res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg-d5c041711a6c2dc0c686c6b46a79131d.s3tc.ctex"]
+source_file="res://asset/material/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg"
+dest_files=["res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg-8ef7f5862c5b681a769151f2d74ef075.s3tc.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://asset/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg"
+roughness/src_normal="res://asset/glb/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

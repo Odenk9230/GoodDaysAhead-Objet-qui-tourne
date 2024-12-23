@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://btxgf8mutov0o"
-path="res://.godot/imported/Digital Display.ttf-600b908d406c9d2040eb485b96839808.fontdata"
+uid="uid://cu5frfypxj6vt"
+path="res://.godot/imported/F25_Bank_Printer_Bold.ttf-ede03bbdbe6d0d65436cc3e7a215beb6.fontdata"
 
 [deps]
 
-source_file="res://Fonts/Digital Display.ttf"
-dest_files=["res://.godot/imported/Digital Display.ttf-600b908d406c9d2040eb485b96839808.fontdata"]
+source_file="res://asset/Fonts/F25_Bank_Printer_Bold.ttf"
+dest_files=["res://.godot/imported/F25_Bank_Printer_Bold.ttf-ede03bbdbe6d0d65436cc3e7a215beb6.fontdata"]
 
 [params]
 

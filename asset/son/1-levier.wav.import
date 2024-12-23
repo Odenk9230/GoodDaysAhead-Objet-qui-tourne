@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dh105yhcg1qli"
-path="res://.godot/imported/Bouton.wav-91fccfda7596d48f4658d6445564cac2.sample"
+uid="uid://csrr02ghaidhv"
+path="res://.godot/imported/1-levier.wav-d4c2964127b6babaa7ebd15dc13a647d.sample"
 
 [deps]
 
-source_file="res://asset/Sounds/Bouton.wav"
-dest_files=["res://.godot/imported/Bouton.wav-91fccfda7596d48f4658d6445564cac2.sample"]
+source_file="res://asset/son/1-levier.wav"
+dest_files=["res://.godot/imported/1-levier.wav-d4c2964127b6babaa7ebd15dc13a647d.sample"]
 
 [params]
 

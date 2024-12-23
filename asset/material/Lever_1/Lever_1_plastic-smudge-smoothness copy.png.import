@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dow26jpe5n2rb"
-path.s3tc="res://.godot/imported/image0.png-bbd71a1a87ef54f377520c4c2efdd5ff.s3tc.ctex"
+uid="uid://bd3ypg2b5w6iw"
+path.s3tc="res://.godot/imported/Lever_1_plastic-smudge-smoothness copy.png-1d0de76f50f6da28889c3013a65961ab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "23e35d4175f5ac33ab603b8dcc1bf417"
+}
 
 [deps]
 
-source_file="res://asset/animations/Punchout/image0.png"
-dest_files=["res://.godot/imported/image0.png-bbd71a1a87ef54f377520c4c2efdd5ff.s3tc.ctex"]
+source_file="res://asset/material/Lever_1/Lever_1_plastic-smudge-smoothness copy.png"
+dest_files=["res://.godot/imported/Lever_1_plastic-smudge-smoothness copy.png-1d0de76f50f6da28889c3013a65961ab.s3tc.ctex"]
 
 [params]
 

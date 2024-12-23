@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://code/Faces/face8.gd" id="1_tiamb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_pdlwg"]
 [ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="3_dc336"]
-[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="4_65one"]
+[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/son/Bouton.wav" id="4_65one"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_v1inn"]
 size = Vector3(0.13, 0.105, 0.205)

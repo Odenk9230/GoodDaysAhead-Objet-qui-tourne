@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf7tw4balfnf"
-path.s3tc="res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Roughness.png-612ec0297c1d7233a973ca656a71731e.s3tc.ctex"
+uid="uid://bkgrv5s1un0lx"
+path.s3tc="res://.godot/imported/retro_Screen.png-3aea1968f8b0bf65199f3471a0a4a40b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "3c3da858fb286a0244975811e5445838"
-}
 
 [deps]
 
-source_file="res://asset/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Roughness.png"
-dest_files=["res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Roughness.png-612ec0297c1d7233a973ca656a71731e.s3tc.ctex"]
+source_file="res://asset/sprite/animations/Punchout/retro_Screen.png"
+dest_files=["res://.godot/imported/retro_Screen.png-3aea1968f8b0bf65199f3471a0a4a40b.s3tc.ctex"]
 
 [params]
 

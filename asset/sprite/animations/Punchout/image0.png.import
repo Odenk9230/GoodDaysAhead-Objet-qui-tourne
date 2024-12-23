@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0d48po3tmgxe"
-path.s3tc="res://.godot/imported/image1.png-b4a091c381168b1a81242d13a837eca0.s3tc.ctex"
+uid="uid://dow26jpe5n2rb"
+path.s3tc="res://.godot/imported/image0.png-327b59833ec269a2e9bed777d0c077b3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://asset/animations/Punchout/image1.png"
-dest_files=["res://.godot/imported/image1.png-b4a091c381168b1a81242d13a837eca0.s3tc.ctex"]
+source_file="res://asset/sprite/animations/Punchout/image0.png"
+dest_files=["res://.godot/imported/image0.png-327b59833ec269a2e9bed777d0c077b3.s3tc.ctex"]
 
 [params]
 

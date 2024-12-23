@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://3ncgc61je1xp"
-path="res://.godot/imported/F25_Bank_Printer.ttf-6725357c564c1e636d22b457c76acad5.fontdata"
+path="res://.godot/imported/F25_Bank_Printer.ttf-350e88624ffe7196f272f794d788c631.fontdata"
 
 [deps]
 
-source_file="res://Fonts/F25_Bank_Printer.ttf"
-dest_files=["res://.godot/imported/F25_Bank_Printer.ttf-6725357c564c1e636d22b457c76acad5.fontdata"]
+source_file="res://asset/Fonts/F25_Bank_Printer.ttf"
+dest_files=["res://.godot/imported/F25_Bank_Printer.ttf-350e88624ffe7196f272f794d788c631.fontdata"]
 
 [params]
 

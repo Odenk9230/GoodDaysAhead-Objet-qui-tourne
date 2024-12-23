@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=4 uid="uid://bef84lc0ss7fh"]
 
-[ext_resource type="Texture2D" uid="uid://geeroqny2xbo" path="res://asset/Lever_1/Lever_1_plastic-generic_diffuse.jpg" id="1_gdyys"]
-[ext_resource type="Texture2D" uid="uid://ctdnerxqun5cl" path="res://asset/Lever_1/Lever_1_plastic-smudge-smoothness copy.png" id="2_cmb6y"]
-[ext_resource type="Texture2D" uid="uid://8kyvkrr0bns8" path="res://asset/Lever_1/Lever_1_plastic-texture-normal-4.jpg" id="3_7fcac"]
-[ext_resource type="Texture2D" uid="uid://b2d15v1v0xtpd" path="res://asset/Lever_1/Lever_1_tiled_plane_DefaultMaterial_BaseColor.jpg" id="4_qqoc1"]
-[ext_resource type="Texture2D" uid="uid://cf7tw4balfnf" path="res://asset/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Roughness.png" id="5_vn15q"]
-[ext_resource type="Texture2D" uid="uid://cj0c5n1m1yvl2" path="res://asset/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg" id="6_ahpp5"]
-[ext_resource type="AudioStream" uid="uid://csrr02ghaidhv" path="res://asset/Sounds/1-levier.wav" id="7_18wuy"]
+[ext_resource type="Texture2D" uid="uid://geeroqny2xbo" path="res://asset/material/Lever_1/Lever_1_plastic-generic_diffuse.jpg" id="1_gdyys"]
+[ext_resource type="Texture2D" uid="uid://ctdnerxqun5cl" path="res://asset/material/Lever_1/Lever_1_plastic-smudge-smoothness copy.png" id="2_cmb6y"]
+[ext_resource type="Texture2D" uid="uid://8kyvkrr0bns8" path="res://asset/material/Lever_1/Lever_1_plastic-texture-normal-4.jpg" id="3_7fcac"]
+[ext_resource type="Texture2D" uid="uid://b2d15v1v0xtpd" path="res://asset/material/Lever_1/Lever_1_tiled_plane_DefaultMaterial_BaseColor.jpg" id="4_qqoc1"]
+[ext_resource type="Texture2D" uid="uid://cf7tw4balfnf" path="res://asset/material/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Roughness.png" id="5_vn15q"]
+[ext_resource type="Texture2D" uid="uid://cj0c5n1m1yvl2" path="res://asset/material/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Normal.jpg" id="6_ahpp5"]
+[ext_resource type="AudioStream" uid="uid://csrr02ghaidhv" path="res://asset/son/1-levier.wav" id="7_18wuy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13d67"]
 resource_name = "Plastic Grey 24"

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://geeroqny2xbo"
-path.s3tc="res://.godot/imported/Lever_1_plastic-generic_diffuse.jpg-5e90eb6ebde71a03d423bbef97889217.s3tc.ctex"
+uid="uid://bxjjlr03cseey"
+path.s3tc="res://.godot/imported/Lever_1_plastic-generic_diffuse.jpg-fae59e5ff5afce662d8b6192f9caacf6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://asset/Lever_1/Lever_1_plastic-generic_diffuse.jpg"
-dest_files=["res://.godot/imported/Lever_1_plastic-generic_diffuse.jpg-5e90eb6ebde71a03d423bbef97889217.s3tc.ctex"]
+source_file="res://asset/material/Lever_1/Lever_1_plastic-generic_diffuse.jpg"
+dest_files=["res://.godot/imported/Lever_1_plastic-generic_diffuse.jpg-fae59e5ff5afce662d8b6192f9caacf6.s3tc.ctex"]
 
 [params]
 

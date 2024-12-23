@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8kyvkrr0bns8"
-path.s3tc="res://.godot/imported/Lever_1_plastic-texture-normal-4.jpg-d6e07b64dede2631005d6d5c5951d500.s3tc.ctex"
+uid="uid://b6ernewll6ky0"
+path.s3tc="res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Roughness.png-acb14d03359d2750f0351d3fbc884987.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b33de6ae2817829d0153f88c9456cd3f"
+"md5": "3c3da858fb286a0244975811e5445838"
 }
 
 [deps]
 
-source_file="res://asset/Lever_1/Lever_1_plastic-texture-normal-4.jpg"
-dest_files=["res://.godot/imported/Lever_1_plastic-texture-normal-4.jpg-d6e07b64dede2631005d6d5c5951d500.s3tc.ctex"]
+source_file="res://asset/material/Lever_1/Lever_1_tiled_plane_DefaultMaterial_Roughness.png"
+dest_files=["res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_Roughness.png-acb14d03359d2750f0351d3fbc884987.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://asset/Lever_1_plastic-texture-normal-4.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

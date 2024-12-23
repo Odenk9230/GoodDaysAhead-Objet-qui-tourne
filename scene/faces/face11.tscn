@@ -1,28 +1,27 @@
-[gd_scene load_steps=32 format=4 uid="uid://dwnt4bt75lt0d"]
+[gd_scene load_steps=33 format=4 uid="uid://dwnt4bt75lt0d"]
 
 [ext_resource type="Script" path="res://code/Faces/face11.gd" id="1_5npai"]
 [ext_resource type="AudioStream" uid="uid://dv1xveh408o1i" path="res://asset/son/light.ogg" id="2_cv60r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_uh15n"]
+[ext_resource type="Script" path="res://code/Classe/Led.gd" id="2_xa6h5"]
 [ext_resource type="Texture2D" uid="uid://0yts6da2lwm6" path="res://asset/Nuclear_Button/Nuclear_button_T_Plan de travail 1.png" id="4_hkgxm"]
 [ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="4_orqbs"]
 [ext_resource type="Script" path="res://scene/faces/fish.gd" id="4_xxj1o"]
 [ext_resource type="PackedScene" uid="uid://bfls30dffhso0" path="res://scene/prefab/telly_rig.tscn" id="5_aqv4s"]
 [ext_resource type="Texture2D" uid="uid://do8hxvkj3bpt0" path="res://asset/Nuclear_Button/Hit_effect.png" id="5_bi0tn"]
-[ext_resource type="AnimationLibrary" uid="uid://csa54qiok4x1d" path="res://code/animation/face11.tres" id="6_s1uvu"]
+[ext_resource type="AnimationLibrary" uid="uid://csa54qiok4x1d" path="res://asset/animation/face11.tres" id="6_s1uvu"]
 [ext_resource type="AudioStream" uid="uid://cpbebivqs4eas" path="res://asset/son/clic_bouton.ogg" id="8_iel18"]
 [ext_resource type="AudioStream" uid="uid://dwljwc0knrn2m" path="res://asset/son/loop_note_ catch.ogg" id="10_0w186"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avgay"]
 resource_name = "led"
-transparency = 4
-blend_mode = 1
-cull_mode = 2
+cull_mode = 1
 depth_draw_mode = 1
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
-emission = Color(0.395368, 0.239448, 0.105881, 1)
-emission_energy_multiplier = 7.8
+emission = Color(0.0901961, 0.643137, 0.819608, 1)
+emission_energy_multiplier = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3cmf"]
 resource_name = "socle"
@@ -252,10 +251,7 @@ height = 2.805
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00019601, 0.00209929, -0.000621676)
 script = ExtResource("1_5npai")
 jauge = NodePath("main jauge/area")
-led = NodePath("led/Circle")
-notin = Color(1, 0.152941, 0.164706, 1)
-inthezone = Color(0.0887006, 0.642147, 0.818721, 1)
-win = Color(0.283124, 0.542041, 0.122269, 1)
+led = NodePath("led")
 timer = NodePath("WinTimer")
 button = NodePath("PhantomCamera3D/Nuclear_button/Area3D")
 animPlayer = NodePath("PhantomCamera3D/Nuclear_button/Area3D/Cylinder_001/AnimationPlayer")
@@ -263,6 +259,10 @@ pushed = NodePath("main jauge/Area3D")
 
 [node name="led" type="Node3D" parent="."]
 transform = Transform3D(-2.62268e-09, 0.06, 0, -0.06, -2.62268e-09, 0, 0, 0, 0.06, -0.0494707, 0.135419, -0.299572)
+script = ExtResource("2_xa6h5")
+nothing = Color(0.0901961, 0.643137, 0.819608, 1)
+error = Color(0.745098, 0.0745098, 0, 1)
+ongoing = Color(0.764706, 0.537255, 0.0313726, 1)
 
 [node name="Circle" type="MeshInstance3D" parent="led"]
 mesh = SubResource("ArrayMesh_v3xlv")

@@ -1,15 +1,16 @@
-[gd_scene load_steps=17 format=4 uid="uid://movswt56il5g"]
+[gd_scene load_steps=18 format=4 uid="uid://movswt56il5g"]
 
 [ext_resource type="Script" path="res://code/Faces/face4.gd" id="1_hjk7m"]
+[ext_resource type="Script" path="res://code/Classe/Led.gd" id="2_ac436"]
 [ext_resource type="PackedScene" uid="uid://178b0v14nvj1" path="res://scene/Nuclear_button_1.tscn" id="2_bkud7"]
 [ext_resource type="AudioStream" uid="uid://dv1xveh408o1i" path="res://asset/son/light.ogg" id="2_h5a10"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_py1hc"]
-[ext_resource type="SpriteFrames" uid="uid://r1t7gu0f0feb" path="res://asset/animations/Punchout/anim_punchout.tres" id="4_q7ek3"]
-[ext_resource type="Texture2D" uid="uid://bkgrv5s1un0lx" path="res://asset/animations/Punchout/retro_Screen.png" id="4_w46qv"]
+[ext_resource type="SpriteFrames" uid="uid://r1t7gu0f0feb" path="res://asset/sprite/animations/Punchout/anim_punchout.tres" id="4_q7ek3"]
+[ext_resource type="Texture2D" uid="uid://bkgrv5s1un0lx" path="res://asset/sprite/animations/Punchout/retro_Screen.png" id="4_w46qv"]
 [ext_resource type="Resource" uid="uid://bpbvgv8iuni8d" path="res://asset/camtween.tres" id="5_pi3hv"]
 [ext_resource type="PackedScene" uid="uid://bv4gqleuvnv3" path="res://asset/retro_screen/retro_screen.glb" id="8_vi1c2"]
 [ext_resource type="AudioStream" uid="uid://cq4wqgywlkuw7" path="res://asset/son/coup_de_poing.ogg" id="9_hxpo2"]
-[ext_resource type="FontFile" uid="uid://btxgf8mutov0o" path="res://Fonts/Digital Display.ttf" id="9_ss6j5"]
+[ext_resource type="FontFile" uid="uid://btxgf8mutov0o" path="res://asset/Fonts/Digital Display.ttf" id="9_ss6j5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_guhmw"]
 resource_name = "led"
@@ -18,8 +19,8 @@ depth_draw_mode = 1
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
-emission = Color(0.54194, 0.111921, 1.92523e-07, 1)
-emission_energy_multiplier = 4.65
+emission = Color(0.0901961, 0.643137, 0.819608, 1)
+emission_energy_multiplier = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3cmf"]
 resource_name = "socle"
@@ -96,17 +97,18 @@ stream_0/stream = ExtResource("9_hxpo2")
 
 [node name="Face4" type="Node3D" node_paths=PackedStringArray("led", "anim", "Sprite", "label", "punchtimer")]
 script = ExtResource("1_hjk7m")
-led = NodePath("led/Circle")
-begin = Color(0.424623, 0.229037, 0, 1)
-win = Color(0.284982, 0.848404, 0, 1)
-loose = Color(0.979494, 0.0892732, 0, 1)
+led = NodePath("led")
 anim = NodePath("Area3D/Nuclear_button/Cylinder_001/AnimationPlayer")
 Sprite = NodePath("AnimatedSprite3D")
 label = NodePath("retro_screen2/Label3D")
 punchtimer = NodePath("punchtimer")
 
 [node name="led" type="Node3D" parent="."]
-transform = Transform3D(-2.40413e-09, 0.055, 0, -0.055, -2.40413e-09, 0, 0, 0, 0.055, 0, 0.295703, -0.380692)
+transform = Transform3D(-2.40413e-09, 0.055, 0, -0.055, -2.40413e-09, 0, 0, 0, 0.055, -0.0507441, 0.295703, -0.380692)
+script = ExtResource("2_ac436")
+nothing = Color(0.0901961, 0.643137, 0.819608, 1)
+error = Color(0.745098, 0.0745098, 0, 1)
+ongoing = Color(0.764706, 0.537255, 0.0313726, 1)
 
 [node name="Circle" type="MeshInstance3D" parent="led"]
 mesh = SubResource("ArrayMesh_onf1q")

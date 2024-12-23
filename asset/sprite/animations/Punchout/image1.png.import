@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2d15v1v0xtpd"
-path.s3tc="res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_BaseColor.jpg-e1915cad033b961cd07763b0f50e2a09.s3tc.ctex"
+uid="uid://c0d48po3tmgxe"
+path.s3tc="res://.godot/imported/image1.png-fb38ca866233690d4d373d9a3ff9aff0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "3a3042d67b571ef8b01e1125f9230d7a"
-}
 
 [deps]
 
-source_file="res://asset/Lever_1/Lever_1_tiled_plane_DefaultMaterial_BaseColor.jpg"
-dest_files=["res://.godot/imported/Lever_1_tiled_plane_DefaultMaterial_BaseColor.jpg-e1915cad033b961cd07763b0f50e2a09.s3tc.ctex"]
+source_file="res://asset/sprite/animations/Punchout/image1.png"
+dest_files=["res://.godot/imported/image1.png-fb38ca866233690d4d373d9a3ff9aff0.s3tc.ctex"]
 
 [params]
 

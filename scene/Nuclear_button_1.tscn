@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://0yts6da2lwm6" path="res://asset/Nuclear_Button/Nuclear_button_T_Plan de travail 1.png" id="1_qgc1h"]
 [ext_resource type="Texture2D" uid="uid://do8hxvkj3bpt0" path="res://asset/Nuclear_Button/Hit_effect.png" id="2_7naf5"]
-[ext_resource type="AnimationLibrary" uid="uid://ose77t7ysavp" path="res://code/animation/Animation_face_4.tres" id="3_hl43o"]
-[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="4_5jkeq"]
+[ext_resource type="AnimationLibrary" uid="uid://ose77t7ysavp" path="res://asset/animation/Animation_face_4.tres" id="3_hl43o"]
+[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/son/Bouton.wav" id="4_5jkeq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkuss"]
 resource_name = "Material"

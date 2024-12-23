@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bfls30dffhso0" path="res://scene/prefab/telly_rig.tscn" id="5_xjfed"]
 [ext_resource type="PackedScene" uid="uid://dpco37jcawtye" path="res://scene/Spikes.tscn" id="6_f4hy3"]
 [ext_resource type="PackedScene" uid="uid://c3ti3mq5mmbkh" path="res://asset/Nuclear_Button/Nuclear_button.glb" id="7_oy6kv"]
-[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/Sounds/Bouton.wav" id="9_ljgqm"]
+[ext_resource type="AudioStream" uid="uid://dh105yhcg1qli" path="res://asset/son/Bouton.wav" id="9_ljgqm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4lvtj"]
 size = Vector3(4.34, 1.96, 1)

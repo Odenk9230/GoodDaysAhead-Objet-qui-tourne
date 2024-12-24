@@ -160,19 +160,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 
 script = ExtResource("2_xix1n")
 tween_resource = ExtResource("3_4mob2")
 
-[node name="Camera3D" type="Camera3D" parent="PhantomCamera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00237238, 0)
-
 [node name="SubViewport" type="SubViewport" parent="."]
 
 [node name="Node3D" type="Node3D" parent="SubViewport"]
 
 [node name="telly_controller" parent="SubViewport/Node3D" instance=ExtResource("4_ptm58")]
-transform = Transform3D(1.65, -5.75498e-16, 5.75498e-16, 5.75498e-16, 1.65, -5.75498e-16, -5.75498e-16, 5.75498e-16, 1.65, -0.345133, 0.140525, -18.9598)
+transform = Transform3D(1.65, -5.75498e-16, 5.75498e-16, 5.75498e-16, 1.65, -5.75498e-16, -5.75498e-16, 5.75498e-16, 1.65, -0.345133, 0.140525, -1210.38)
 top_level = true
 
 [node name="Murs" type="Node3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.0945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1210.52)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D/Murs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84596, 0)

@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 	accelerotation *= 0.8
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
+func _on_area_3d_area_entered(_area: Area3D) -> void:
 	print("C'est bon ça marche peut etre")
 
 func _unhandled_input(event: InputEvent) -> void:

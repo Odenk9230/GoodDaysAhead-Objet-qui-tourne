@@ -24,12 +24,12 @@ func _face_on():
 func _face_off():
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	label.text = str(conteur)
 	pass
 
 
-func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_area_3d_input_event(_camera: Node, _event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if Input.is_action_just_pressed("clic_gauche") and canpunch:
 		anim.play("CLICK")
 		led.passe_en_cours()

@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	accelerotation *= 0.3
 
 
-func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_area_3d_input_event(_camera: Node, _event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if Input.is_action_just_pressed("clic_droit") and !clicked:
 		clicked = true
 

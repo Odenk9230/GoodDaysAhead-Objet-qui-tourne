@@ -10,5 +10,5 @@ func _face_on():
 func _face_off():
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

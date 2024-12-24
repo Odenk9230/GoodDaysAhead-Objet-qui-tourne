@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 			dose_appui = 0.0
 		
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("clic_droit") and active and !roue.tourne:
 		appui = true
 	if Input.is_action_just_released("clic_droit") and appui :

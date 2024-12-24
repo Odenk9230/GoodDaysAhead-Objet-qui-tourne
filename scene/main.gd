@@ -42,7 +42,7 @@ func _on_arret_rotation():
 		woosh.play()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		_go_to_main_view()
 			
